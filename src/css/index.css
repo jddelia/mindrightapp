@@ -1,0 +1,269 @@
+@import url("https://fonts.googleapis.com/css?family=Hammersmith+One&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 1000px;
+  background: #FFFFFF;
+  background: linear-gradient(to bottom right, #FFFFFF, #e7edf5);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.App {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.navBar {
+  height: 80px;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  align-items: center;
+}
+.navBar .navLeft {
+  justify-self: center;
+}
+.navBar .navLeft .logo {
+  height: 80px;
+}
+.navBar .navRight {
+  justify-self: end;
+  height: 30px;
+  width: 40%;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: end;
+  margin-right: 80px;
+}
+.navBar .navLinks {
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  align-items: center;
+}
+.navBar .navLinks .navLink {
+  display: flex;
+  align-items: center;
+  height: 15px;
+  border: 1px solid #6B6785;
+  border-radius: 2px;
+  padding: 8%;
+  text-decoration: none;
+  background: #6B6785;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+}
+.navBar .navLinks .navLink:hover {
+  background: transparent;
+  color: #0a1020;
+}
+
+.appHeader {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 4px;
+  justify-items: center;
+  font-family: "Hammersmith One", sans-serif;
+}
+.appHeader .headerTextLg {
+  font-size: 30px;
+  letter-spacing: 6px;
+  color: #232A3B;
+}
+.appHeader .headerTextSm {
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: #232A3B;
+}
+
+.home {
+  padding: 2%;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.home .jumbo {
+  padding: 1%;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+  height: 420px;
+  width: 90vw;
+}
+.home .phrase {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: center;
+  text-align: center;
+  width: 80%;
+  height: 200px;
+  color: #232A3B;
+}
+.home .phrase .phraseText {
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: 8px;
+  line-height: 1.4;
+  font-family: "Roboto" sans-serif;
+}
+.home .phrase .animPhraseContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.home .phrase .phraseTextAnimated {
+  grid-column: 1;
+  grid-row: 1;
+  color: #6abdcc;
+}
+.home .graphic {
+  grid-column: 2;
+  grid-row: 1/3;
+  height: 340px;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+}
+.home .quoteCardProto {
+  margin-top: 4%;
+  height: 95%;
+  width: 90%;
+  border: 2px solid #eeeeee;
+  box-shadow: 10px 8px 30px #dddddd;
+  border-radius: 5px;
+  padding: 2%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 20% 60% 20%;
+  background: #ffffff;
+  color: #232A3B;
+}
+.home .quoteCardProto .quoteCardHeader {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  align-items: center;
+}
+.home .quoteCardProto .quoteCardHeader .qcThemeIcon {
+  height: 50px;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+}
+.home .quoteCardProto .quoteCardHeader .themeIcon {
+  border: 2px solid;
+  border-radius: 50%;
+  padding: 5%;
+  height: 30px;
+  background: #5583C3;
+  background: linear-gradient(to top left, #5583C3, #E8F7FB);
+}
+.home .quoteCardProto .quoteCardHeader .qcThemeText {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-left: 8%;
+}
+.home .quoteCardProto .quoteCardHeader .qcThemeText .themeText {
+  font-family: "Hammersmith One", sans-serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+.home .quoteCardProto .quoteCardHeader .qcMenuBtn {
+  justify-self: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  transition: 0.2s all;
+}
+.home .quoteCardProto .quoteCardHeader .qcMenuBtn:hover {
+  transform: scale(1.4);
+  cursor: pointer;
+}
+.home .quoteCardProto .quoteCardHeader .qcMenuBtn .menuBtn {
+  height: 25px;
+}
+.home .quoteCardProto .quoteCardBody {
+  padding: 0 2%;
+  display: grid;
+  grid-template-columns: 1fr;
+  font-family: "Roboto" sans-serif;
+}
+.home .quoteCardProto .quoteCardBody .mainContent {
+  font-weight: 100;
+  line-height: 2;
+  font-size: 16px;
+}
+.home .quoteCardProto .quoteCardBody .qcAuthor {
+  margin-left: 2%;
+  padding: 2%;
+}
+.home .quoteCardProto .quoteCardFooter {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.home .quoteCardProto .quoteCardFooter .qcSelectBtn {
+  grid-column: 2;
+  margin-right: 50px;
+  padding: 2%;
+}
+.home .quoteCardProto .quoteCardFooter .selectBtn {
+  height: 30px;
+  width: 80px;
+  border: 1px solid #5a8bb3;
+  border-radius: 2px;
+  background: #ffffff;
+  font-family: "Roboto" sans-serif;
+  font-size: 14px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  color: #0b1f30;
+  transition: 0.2s all;
+}
+.home .quoteCardProto .quoteCardFooter .selectBtn:hover {
+  background: #5a8bb3cb;
+  cursor: pointer;
+}
+.home .lotusIconJumbo {
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: center;
+  margin-bottom: 12%;
+  margin-right: 12px;
+}
+.home .callToAction {
+  grid-column: 1/3;
+  justify-self: center;
+  align-self: center;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.home .callToAction .ctaBtn {
+  height: 40px;
+  width: 100px;
+  border: 1px solid #6B6785;
+  border-radius: 2px;
+  padding: 8%;
+  text-decoration: none;
+  background: #6B6785;
+  color: #ffffff;
+  font-family: "Roboto" sans-serif;
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+}
+.home .callToAction .ctaBtn:hover {
+  cursor: pointer;
+  background: transparent;
+  color: #0a1020;
+}
+
+/*# sourceMappingURL=index.css.map */
