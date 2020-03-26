@@ -1,17 +1,12 @@
 import React from 'react';
-import Jumbo from './Jumbo';
-
-const backgroundStyle = {
-  backgroundImage: `url(${require('../../assets/mindrightbg1.png')})`,
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
-  backgroundPosition: 'center',
-};
+import Jumbo from './Jumbo/Jumbo';
+import HowItWorks from './HowItWorks/HowItWorks';
 
 function Home() {
   return (
-    <div className="home" style={backgroundStyle}>
+    <div className="home">
       <Jumbo />
+      <HowItWorks />
     </div>
   );
 }
