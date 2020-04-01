@@ -284,7 +284,7 @@ code {
   border: 1px solid #8d88ac;
 }
 .home .howItWorks {
-  margin-top: 10%;
+  margin-top: 8%;
   padding: 2% 2% 2% 2%;
   height: 700px;
   display: grid;
@@ -295,15 +295,27 @@ code {
   justify-self: center;
   text-align: center;
   height: 70px;
-  color: #0a1020;
+  color: #1a2749;
+}
+.home .howItWorks .sectionHeader::before {
+  content: ".";
+  position: relative;
+  display: block;
+  background: rgba(75, 66, 133, 0.226);
+  width: 104%;
+  top: 55px;
+  left: -2%;
+  color: transparent;
+  font-size: 20px;
 }
 .home .howItWorks .sectionHeader .headerText {
-  font-size: 38px;
+  font-size: 40px;
   font-weight: 900;
   letter-spacing: 6px;
   font-family: "Roboto" sans-serif;
 }
 .home .howItWorks .steps {
+  margin-top: 2%;
   justify-self: center;
   width: 90%;
   padding: 2%;
@@ -337,21 +349,32 @@ code {
   align-items: center;
 }
 .home .howItWorks .stepSection .stepSectionContent .stepContentText {
-  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10% 80%;
+  justify-items: center;
   width: 70%;
   height: 80%;
+  text-align: center;
   line-height: 1.8;
   letter-spacing: 1px;
   font-size: 20px;
   color: #03313a;
 }
+.home .howItWorks .stepSection .stepSectionContent .stepContentText:hover .stepAccent {
+  box-shadow: 4px 4px 20px #3ddcf181;
+  background: #25d5ec79;
+}
 .home .howItWorks .stepSection .stepSectionContent .stepContentText .stepAccent {
+  text-align: center;
   display: block;
-  margin-bottom: -8%;
+  width: 80%;
+  margin-bottom: -4%;
   font-size: 24px;
   color: #03313a;
   background: #25d5ec41;
   box-shadow: 1px 1px 20px #25d5ec34;
+  transition: all 0.2s;
 }
 
 /*# sourceMappingURL=index.css.map */
