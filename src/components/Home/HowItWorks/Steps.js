@@ -62,7 +62,7 @@ function Steps() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Steps;
