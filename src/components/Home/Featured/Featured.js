@@ -18,24 +18,27 @@ large role in the rise of modern attitudes...
 function Featured() {
   return (
     <div className="featured">
-      <FeaturedItem 
-        img={require('../../../assets/marcusAurelius.png')}
-        author={"Marcus Aurelius"}
-        content={marcus}
-        url={"https://www.gutenberg.org/files/2680/2680-h/2680-h.htm"}
-      />
-      <FeaturedItem 
-        img={require('../../../assets/musashi.png')}
-        author={"Miyamoto Musashi"}
-        content={miyamoto}
-        url={"https://terebess.hu/zen/mesterek/A-book-of-five-rings.pdf"}
-      />
-      <FeaturedItem 
-        img={require('../../../assets/epictetus.png')}
-        author={"Epictetus"}
-        content={epictetus}
-        url={"https://www.gutenberg.org/files/45109/45109-h/45109-h.htm"}
-      />
+      <span className="featuredHeader">In Focus</span>
+      <div className="featuredItems">
+        <FeaturedItem 
+          img={require('../../../assets/marcusAurelius.png')}
+          author={"Marcus Aurelius"}
+          content={marcus}
+          url={"https://www.gutenberg.org/files/2680/2680-h/2680-h.htm"}
+        />
+        <FeaturedItem 
+          img={require('../../../assets/musashi.png')}
+          author={"Miyamoto Musashi"}
+          content={miyamoto}
+          url={"https://terebess.hu/zen/mesterek/A-book-of-five-rings.pdf"}
+        />
+        <FeaturedItem 
+          img={require('../../../assets/epictetus.png')}
+          author={"Epictetus"}
+          content={epictetus}
+          url={"https://www.gutenberg.org/files/45109/45109-h/45109-h.htm"}
+        />
+      </div>
     </div>
   );
 }
