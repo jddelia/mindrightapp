@@ -11,7 +11,7 @@ function App() {
   let display = null;
 
   useEffect(() => {
-    const changeView = setTimeout(() => setIsLoading(false), 4000);
+    const changeView = setTimeout(() => setIsLoading(false), 1000);
 
     return () => clearTimeout(changeView);
   }, [isLoading]);
@@ -24,7 +24,12 @@ function App() {
     <AnimatePresence exitBeforeEnter>
       {
         isLoading ? display :
-        <motion.div className="App">
+        <motion.div 
+          className="App"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           <Navbar />
           <Header />
           <Home />

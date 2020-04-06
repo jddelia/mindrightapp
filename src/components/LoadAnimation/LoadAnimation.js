@@ -11,15 +11,15 @@ function LoadAnimation() {
         key={mindrightLogo} 
         src={mindrightLogo} 
         initial={{ opacity: 0, scale: 1.6 }}
-        animate={{ opacity: 1, scale: 1 }}
+        animate={{ opacity: 1, scale: .4 }}
         exit={{ opacity: 0, scale: 1.6 }}
         transition={{ 
           opacity: { 
-            duration: 0.3, 
+            duration: 1, 
             delay: 0 
           }, 
           scale: {
-            duration: 0.4
+            duration: 1
           } 
         }}
       />
