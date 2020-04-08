@@ -49,7 +49,6 @@ code {
   display: grid;
   grid-template-columns: 1fr;
   justify-items: end;
-  margin-right: 80px;
 }
 .navBar .navLinks {
   width: 80%;
@@ -297,6 +296,10 @@ code {
   background: #8d88ac;
   color: #ffffff;
   border: 1px solid #8d88ac;
+}
+.home .callToAction .ctaBtn a {
+  text-decoration: none;
+  color: #eff0fc;
 }
 .home .howItWorks {
   margin-top: 5%;
@@ -603,6 +606,53 @@ code {
 .footer .copyright .copyrightText {
   font-size: 14px;
   color: #777777;
+}
+
+.pageTitle {
+  margin: 3% 0;
+  justify-self: center;
+  text-align: center;
+  height: 70px;
+  color: #1a2749;
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: 6px;
+  font-family: "Roboto" sans-serif;
+}
+.pageTitle::before {
+  content: ".";
+  position: relative;
+  display: block;
+  background: rgba(75, 66, 133, 0.226);
+  width: 104%;
+  top: 55px;
+  left: -2%;
+  color: transparent;
+  font-size: 20px;
+}
+.pageTitle .headerText {
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: 6px;
+  font-family: "Roboto" sans-serif;
+}
+
+.explore {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 2%;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 2%;
+}
+
+.support {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 2%;
 }
 
 /*# sourceMappingURL=index.css.map */

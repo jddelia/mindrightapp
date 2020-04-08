@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import LoadAnimation from './components/LoadAnimation/LoadAnimation';
 import Navbar from './components/Navbar/Navbar';
-import Header from './components/Header.js/Header';
+import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer';
 import Explore from './components/Explore/Explore';

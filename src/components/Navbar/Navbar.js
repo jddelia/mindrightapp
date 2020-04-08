@@ -12,7 +12,6 @@ function Navbar() {
         <div className="navLinks">
           <Link to="/" className="navLink" href="#">Home</Link>
           <Link to="/explore" className="navLink" href="#">Explore</Link>
-          <Link to="/search" className="navLink" href="#">Search</Link>
           <Link to="/about" className="navLink" href="#">About</Link>
           <Link to="/support" className="navLink" href="#">Support</Link>
         </div>

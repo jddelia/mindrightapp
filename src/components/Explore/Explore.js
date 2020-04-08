@@ -1,9 +1,13 @@
 import React from 'react';
 
+import Header from './Header';
+import ExploreCardsContainer from './ExploreCardsContainer';
+
 function Explore() {
   return (
     <div className="explore">
-      explore
+      <Header />
+      <ExploreCardsContainer />
     </div>
   );
 }

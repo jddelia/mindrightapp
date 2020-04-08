@@ -1,9 +1,11 @@
 import React from 'react';
 
+import Header from './Header';
+
 function Support() {
   return (
     <div className="support">
-      Support
+      <Header />
     </div>
   );
 }
