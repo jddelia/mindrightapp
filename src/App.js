@@ -5,6 +5,7 @@ import LoadAnimation from './components/LoadAnimation/LoadAnimation';
 import Navbar from './components/Navbar/Navbar';
 import Header from './components/Header.js/Header';
 import Home from './components/Home/Home';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,11 +29,12 @@ function App() {
           className="App"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 1}}
         >
           <Navbar />
           <Header />
           <Home />
+          <Footer />
         </motion.div>
       }
     </AnimatePresence>

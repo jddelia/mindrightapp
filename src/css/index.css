@@ -267,7 +267,7 @@ code {
   grid-column: 1;
   grid-row: 2;
   justify-self: center;
-  margin-bottom: 12%;
+  margin-bottom: 10%;
   margin-right: 12px;
 }
 .home .callToAction {
@@ -299,7 +299,7 @@ code {
   border: 1px solid #8d88ac;
 }
 .home .howItWorks {
-  margin-top: 8%;
+  margin-top: 4%;
   padding: 2% 2% 2% 2%;
   height: 700px;
   display: grid;
@@ -393,7 +393,7 @@ code {
   transition: all 0.2s;
 }
 .home .featured {
-  margin-top: 4%;
+  margin-top: 2%;
   display: grid;
   grid-template-columns: 1fr;
 }
@@ -502,7 +502,7 @@ code {
   background: #8bd0f8;
 }
 .home .newsletter {
-  margin-top: 10%;
+  margin-top: 4%;
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
@@ -538,6 +538,7 @@ code {
   grid-template-columns: 1fr;
   border-radius: 2px;
   box-shadow: 2px 2px 10px #2f32381e;
+  background: #ffffff;
 }
 .home .newsletter .newsletterSignup .newsletterForm {
   display: grid;
@@ -584,6 +585,24 @@ code {
   background: rgba(115, 109, 156, 0.918);
   border: 1px solid rgba(115, 109, 156, 0.918);
   cursor: pointer;
+}
+
+.footer {
+  margin-top: 8%;
+  height: 200px;
+  background: #eeeeee;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+}
+.footer .copyright {
+  justify-self: center;
+  letter-spacing: 2px;
+}
+.footer .copyright .copyrightText {
+  font-size: 14px;
+  color: #777777;
 }
 
 /*# sourceMappingURL=index.css.map */
