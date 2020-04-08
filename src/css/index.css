@@ -299,7 +299,7 @@ code {
   border: 1px solid #8d88ac;
 }
 .home .howItWorks {
-  margin-top: 4%;
+  margin-top: 5%;
   padding: 2% 2% 2% 2%;
   height: 700px;
   display: grid;
@@ -589,7 +589,7 @@ code {
 
 .footer {
   margin-top: 8%;
-  height: 200px;
+  height: 150px;
   background: #eeeeee;
   display: grid;
   grid-template-columns: 1fr;
