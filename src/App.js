@@ -9,7 +9,6 @@ import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer';
 import Explore from './components/Explore/Explore';
-import Search from './components/Search/Search';
 import About from './components/About/About';
 import Support from './components/Support/Support';
 
@@ -46,9 +45,6 @@ function App() {
               </Route>
               <Route path="/explore">
                 <Explore />
-              </Route>
-              <Route path="/search">
-                <Search />
               </Route>
               <Route path="/about">
                 <About />
