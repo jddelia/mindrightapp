@@ -5,7 +5,7 @@ function Steps() {
     <div className="steps">
       <div className="stepSection">
         <div className="stepSectionIcon">
-          <img className="stepIcon" src={require('../../../assets/icons/searchIcon.svg')} />
+          <img className="stepIcon" src={require('../../../assets/icons/searchIcon.svg')} alt="magnifying glass" />
         </div>
         
         <div className="stepSectionHeader" style={{display:"none"}}>
@@ -24,7 +24,7 @@ function Steps() {
 
       <div className="stepSection">
         <div className="stepSectionIcon">
-          <img className="stepIcon" src={require('../../../assets/icons/selectIcon.svg')} />
+          <img className="stepIcon" src={require('../../../assets/icons/selectIcon.svg')} alt="pointer" />
         </div>
         
         <div className="stepSectionHeader" style={{display:"none"}}>
@@ -44,7 +44,7 @@ function Steps() {
 
       <div className="stepSection">
         <div className="stepSectionIcon">
-          <img className="stepIcon" src={require('../../../assets/icons/refocusIcon.svg')} />
+          <img className="stepIcon" src={require('../../../assets/icons/refocusIcon.svg')} alt="mind" />
         </div>
         
         <div className="stepSectionHeader" style={{display:"none"}}>

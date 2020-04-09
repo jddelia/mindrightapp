@@ -17,7 +17,7 @@ function Jumbo() {
       <Phrase />
       <Graphic />
       <div className="lotusIconJumbo">
-        <img className="lotusIcon" src={require('../../../assets/mainLotus.svg')} />
+        <img className="lotusIcon" src={require('../../../assets/mainLotus.svg')} alt="lotus" />
       </div>
       <CallToAction />
     </div>

@@ -33,7 +33,7 @@ function QuoteCardProto({ position }) {
     <div className="quoteCardProto">
       <div className="quoteCardHeader">
         <div className="qcThemeIcon">
-          <img className="themeIcon" src={protoContent[position].themeIcon} />
+          <img className="themeIcon" src={protoContent[position].themeIcon} alt="theme icon" />
         </div>
 
         <div className="qcThemeText">
@@ -41,7 +41,7 @@ function QuoteCardProto({ position }) {
         </div>
 
         <div className="qcMenuBtn">
-          <img className="menuBtn" src={require('../../assets/icons/menuIcon.svg')} />
+          <img className="menuBtn" src={require('../../assets/icons/menuIcon.svg')} alt="menu button" />
         </div>
       </div>
 
@@ -59,7 +59,7 @@ function QuoteCardProto({ position }) {
 
       <div className="quoteCardFooter">
         <div className="qcSelectBtn">
-          <img className="selectBtn" src={require('../../assets/icons/addIcon.svg')} />
+          <img className="selectBtn" src={require('../../assets/icons/addIcon.svg')} alt="select button" />
         </div>
       </div>
     </div>

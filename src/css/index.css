@@ -153,7 +153,7 @@ code {
   margin-top: 4%;
   height: 75%;
   width: 60%;
-  border: 2px solid #3e4e5c;
+  border: 2px solid #eeeeee;
   box-shadow: 4px 6px 10px #4a52631f;
   border-radius: 5px;
   padding: 2%;
@@ -236,7 +236,7 @@ code {
   transition: 0.2s all;
 }
 .home .quoteCardProto .quoteCardFooter .selectBtn:hover {
-  transform: scale(1.2);
+  transform: scale(1.4);
   cursor: pointer;
 }
 .home .quoteCardProto:nth-child(1) {
@@ -641,6 +641,134 @@ code {
   display: grid;
   grid-template-columns: 1fr;
   padding: 2%;
+}
+.explore .exploreCardsContainer {
+  padding: 2%;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.explore .exploreCardsContainer .cardsContainer {
+  margin-top: 4%;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 20px;
+  row-gap: 40px;
+  justify-items: center;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard {
+  margin-top: 4%;
+  height: fit-content;
+  width: 85%;
+  border: 2px solid #eeeeee;
+  box-shadow: 4px 6px 10px #4a526311;
+  border-radius: 5px;
+  padding: 2%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 20% 60% 20%;
+  background: #ffffff;
+  color: #232A3B;
+  transition: all 0.2s;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 6px 12px 20px #b8b8b831;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  align-items: center;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcThemeIcon {
+  height: 50px;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .themeIcon {
+  border: 2px solid;
+  border-radius: 50%;
+  padding: 5%;
+  height: 30px;
+  background: #5583C3;
+  background: linear-gradient(to top left, #5583C3, #E8F7FB);
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .Focus {
+  background: linear-gradient(to top left, #f7e783, #f5f1c0);
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .Mind\/Body {
+  background: linear-gradient(to top left, #5583C3, #E8F7FB);
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .Mindset {
+  background: linear-gradient(to top left, #399755, #d8f7d7);
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .Courage {
+  background: linear-gradient(to top left, #51c7cf, #efe8fb);
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .Purpose {
+  background: linear-gradient(to top left, #d3f3df, #f3e8fb);
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcThemeText {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-left: 8%;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcThemeText .themeText {
+  font-family: "Hammersmith One", sans-serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn {
+  justify-self: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  transition: 0.2s all;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn:hover {
+  transform: scale(1.4);
+  cursor: pointer;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .menuBtn {
+  height: 25px;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardBody {
+  padding: 0 4%;
+  display: grid;
+  grid-template-columns: 1fr;
+  font-family: "Roboto" sans-serif;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardBody .mainContent {
+  width: 95%;
+  font-weight: 300;
+  line-height: 2;
+  font-size: 14px;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardBody .qcAuthor {
+  width: 70%;
+  font-size: 12px;
+  margin-left: 2%;
+  letter-spacing: 2px;
+  line-height: 1.7;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardFooter {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardFooter .qcSelectBtn {
+  grid-column: 2;
+  margin-right: 30px;
+  padding: 4%;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardFooter .selectBtn {
+  height: 30px;
+  background: #ffffff;
+  transition: 0.2s all;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardFooter .selectBtn:hover {
+  transform: scale(1.4);
+  cursor: pointer;
 }
 
 .about {

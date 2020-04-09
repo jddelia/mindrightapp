@@ -4,7 +4,7 @@ function FeaturedItem({ img, author, content, url }) {
   return (
     <div className="featuredItem">
       <div className="itemImg">
-        <img className="featuredImg" src={img} />
+        <img className="featuredImg" src={img} alt="author" />
       </div>
 
       <div className="itemContent">

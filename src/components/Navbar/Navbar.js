@@ -5,7 +5,7 @@ function Navbar() {
   return (
     <nav className="navBar">
       <div className="navLeft">
-        <img className="logo" src={require('../../assets/mindrightmain.svg')} />
+        <img className="logo" src={require('../../assets/mindrightmain.svg')} alt="MINDRIGHT logo" />
       </div>
 
       <div className="navRight">
