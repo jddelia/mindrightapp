@@ -2,12 +2,12 @@ import React from 'react';
 
 import Header from './Header';
 
-function Support() {
+function Login() {
   return (
-    <div className="support">
+    <div className="login">
       <Header />
     </div>
   );
 }
 
-export default Support;
+export default Login;

@@ -10,17 +10,28 @@ import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer';
 import Explore from './components/Explore/Explore';
 import About from './components/About/About';
-import Support from './components/Support/Support';
+import Login from './components/Login/Login';
+
+import QuotesContext from './context/QuotesContext';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [quotes, setQuotes] = useState(null);
   let display = null;
 
   useEffect(() => {
-    const changeView = setTimeout(() => setIsLoading(false), 1000);
+    if (isLoading) {
+      const changeView = setTimeout(() => setIsLoading(false), 1000);
+      return () => clearTimeout(changeView);
+    }
 
-    return () => clearTimeout(changeView);
-  }, [isLoading]);
+    async function fetchData() {
+      const response = await axios.get('https://mindright-api.herokuapp.com/quotes/all');
+      setQuotes(response.data);
+    }
+
+    fetchData();
+  }, [isLoading, setQuotes]);
 
   if (isLoading) {
     display = <LoadAnimation />;
@@ -28,35 +39,37 @@ function App() {
 
   return (
     <BrowserRouter>
-      <AnimatePresence exitBeforeEnter>
-        {
-          isLoading ? display :
-          <motion.div 
-            className="App"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1}}
-          >
-            <Navbar />
-            <Header />
-            <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route path="/explore">
-                <Explore />
-              </Route>
-              <Route path="/about">
-                <About />
-              </Route>
-              <Route path="/support">
-                <Support />
-              </Route>
-            </Switch>
-            <Footer />
-          </motion.div>
-        }
-      </AnimatePresence>
+      <QuotesContext.Provider value={quotes}>
+        <AnimatePresence exitBeforeEnter>
+          {
+            isLoading ? display :
+            <motion.div 
+              className="App"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1}}
+            >
+              <Navbar />
+              <Header />
+              <Switch>
+                <Route exact path="/">
+                  <Home />
+                </Route>
+                <Route path="/explore">
+                  <Explore />
+                </Route>
+                <Route path="/about">
+                  <About />
+                </Route>
+                <Route exact path="/login">
+                  <Login />
+                </Route>
+              </Switch>
+              <Footer />
+            </motion.div>
+          }
+        </AnimatePresence>
+      </QuotesContext.Provider>
     </BrowserRouter>
   );
 }

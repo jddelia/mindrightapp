@@ -40,7 +40,7 @@ code {
   justify-self: center;
 }
 .navBar .navLeft .logo {
-  height: 80px;
+  height: 30px;
 }
 .navBar .navRight {
   justify-self: end;
@@ -98,7 +98,7 @@ code {
 .home {
   display: grid;
   grid-template-columns: 1fr;
-  background: url("/blockBg2.png");
+  background: url("/blockBg.png");
   background-position-y: -130px;
 }
 .home .jumbo {
@@ -649,7 +649,7 @@ code {
   padding: 2%;
 }
 
-.support {
+.login {
   display: grid;
   grid-template-columns: 1fr;
   padding: 2%;
