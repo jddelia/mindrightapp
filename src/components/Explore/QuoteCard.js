@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const balanceIcon = require('../../assets/icons/balanceIcon.svg');
 const eyeIcon = require('../../assets/icons/eyeIconBrown.svg');
@@ -16,7 +17,12 @@ const icons = {
 
 function QuoteCard({ author, content, source, theme }) {
   return (
-    <div className="quoteCard">
+    <motion.div className="quoteCard"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+    >
       <div className="quoteCardHeader">
         <div className="qcThemeIcon">
           <img className={`themeIcon ${theme}`} src={icons[theme]} alt="theme icon" />
@@ -49,7 +55,7 @@ function QuoteCard({ author, content, source, theme }) {
           <img className="selectBtn" src={require('../../assets/icons/addIcon.svg')} alt="add button" />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

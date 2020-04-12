@@ -1,8 +1,9 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 function PlaceHolderCard() {
   return (
-    <div className="placeHolderCard"></div>
+    <motion.div className="placeHolderCard"></motion.div>
   );
 }
 
