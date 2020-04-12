@@ -651,7 +651,7 @@ code {
 .explore .exploreCardsContainer #exploreControls {
   position: absolute;
   top: 320px;
-  left: 10%;
+  width: 90%;
   border-radius: 2px;
   box-shadow: 4px 6px 10px #4a52632a;
   padding: 1.5%;

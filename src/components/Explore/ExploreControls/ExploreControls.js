@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 let exploreControls = null;
 let controlsPosition = {};
@@ -9,19 +9,28 @@ function stickyControls() {
     controlsPosition.y = window.getComputedStyle(exploreControls).top;
   }
 
-  exploreControls.classList.toggle('stickyControls', (window.scrollY > parseInt(controlsPosition.y) -5));
+  exploreControls.classList.toggle(
+    "stickyControls",
+    window.scrollY > parseInt(controlsPosition.y) - 5
+  );
 }
-
-window.addEventListener("scroll", stickyControls);
 
 function ExploreControls({ handleFilter, handleSelectAll }) {
   const inputRef = useRef();
   const checkboxRef = useRef();
 
+  useEffect(() => {
+    document.addEventListener("scroll", stickyControls);
+    return () => {
+      document.removeEventListener('scroll', stickyControls);
+      exploreControls = null;
+      controlsPosition = {};
+    }
+  }, []);
+
   function handleSubmitSearch(e) {
     e.preventDefault();
     const searchTerm = inputRef.current.value;
-    console.log('search')
 
     handleFilter(searchTerm);
   }

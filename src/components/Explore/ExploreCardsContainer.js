@@ -14,6 +14,7 @@ const spinner = (
 );
 let allQuotes = null;
 let randomQuotesList = null;
+let filteredQuotes = null;
 let randomSample = [1,5,3,9,2,0,8,20,7];
 
 function ExploreCardsContainer() {
@@ -68,13 +69,17 @@ function ExploreCardsContainer() {
 
       setQuotesList(allQuotes);
     } else {
-      setQuotesList(randomQuotesList);
+      if (filter && filteredQuotes) {
+        setQuotesList(filteredQuotes);
+      } else {
+        setQuotesList(randomQuotesList);
+      }
     }
   }, [quotes, selectAll]);
 
   useEffect(() => {
     if (quotes && filter) {
-      let filteredQuotes = quotes.filter((quote) => {
+      filteredQuotes = quotes.filter((quote) => {
         return (
           quote.author.toLowerCase().includes(filter.toLowerCase()) ||
           quote.content.toLowerCase().includes(filter.toLowerCase()) ||
@@ -89,9 +94,8 @@ function ExploreCardsContainer() {
             <NoMatches />
           </AnimatePresence>
         );
-        
+
         setQuotesList(filteredQuotes);
-        console.log("No matches")
       } else {
           filteredQuotes = filteredQuotes.map((quote) => {
             const source = quote.source === quote.author ? "" : quote.source;
