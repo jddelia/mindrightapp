@@ -643,9 +643,79 @@ code {
   padding: 2%;
 }
 .explore .exploreCardsContainer {
+  margin-top: 4%;
   padding: 2%;
   display: grid;
   grid-template-columns: 1fr;
+}
+.explore .exploreCardsContainer #exploreControls {
+  position: absolute;
+  top: 320px;
+  left: 10%;
+  border-radius: 2px;
+  box-shadow: 4px 6px 10px #4a52632a;
+  padding: 1.5%;
+  background: #08154dd5;
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  column-gap: 20px;
+  z-index: 1;
+}
+.explore .exploreCardsContainer #exploreControls .exploreFilter {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  column-gap: 20px;
+}
+.explore .exploreCardsContainer #exploreControls .exploreFilter .filter {
+  height: 30px;
+  border: 2px solid transparent;
+  border-radius: 2px;
+  background: #ffffff;
+  padding-left: 2%;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+.explore .exploreCardsContainer #exploreControls .exploreFilter .filter:hover {
+  border-color: #6c7dc9;
+}
+.explore .exploreCardsContainer #exploreControls .exploreFilter .filter:focus {
+  outline: none;
+  border-color: #6c7dc9;
+}
+.explore .exploreCardsContainer #exploreControls .exploreFilter .filterSubmitBtn {
+  border: none;
+  border-radius: 2px;
+  background: #ffffff;
+  font-size: 16px;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+}
+.explore .exploreCardsContainer #exploreControls .exploreFilter .filterSubmitBtn:hover {
+  background: #efeef7;
+  cursor: pointer;
+}
+.explore .exploreCardsContainer #exploreControls .exploreFilter .filterSubmitBtn:focus {
+  outline: none;
+}
+.explore .exploreCardsContainer #exploreControls .exploreFilter .filterSubmitBtn:active {
+  transform: scale(0.9);
+}
+.explore .exploreCardsContainer #exploreControls .selectAll {
+  align-items: center;
+  margin-left: 10%;
+  display: grid;
+  grid-template-columns: 1fr 9fr;
+}
+.explore .exploreCardsContainer #exploreControls .selectAll [type=checkbox]:not(:checked),
+.explore .exploreCardsContainer #exploreControls .selectAll [type=checkbox]:checked {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.explore .exploreCardsContainer #exploreControls .selectAll .selectAllLabel {
+  font-size: 20px;
+  color: #ffffff;
 }
 .explore .exploreCardsContainer .cardsContainer {
   margin-top: 4%;
@@ -672,7 +742,6 @@ code {
   transition: all 0.2s;
 }
 .explore .exploreCardsContainer .cardsContainer .quoteCard:hover {
-  transform: translateY(-10px);
   box-shadow: 6px 12px 20px #b8b8b831;
 }
 .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader {
@@ -769,6 +838,13 @@ code {
 .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardFooter .selectBtn:hover {
   transform: scale(1.4);
   cursor: pointer;
+}
+.explore .exploreCardsContainer .noMatches {
+  grid-column: 1/4;
+}
+.explore .stickyControls {
+  position: fixed !important;
+  top: 5px !important;
 }
 
 .about {

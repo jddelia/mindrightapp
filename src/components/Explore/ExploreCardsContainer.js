@@ -3,6 +3,7 @@ import { AnimatePresence } from 'framer-motion';
 
 import QuoteCard from './QuoteCard';
 import ExploreControls from './ExploreControls/ExploreControls';
+import NoMatches from './NoMatches';
 
 import QuotesContext from '../../context/QuotesContext';
 
@@ -12,17 +13,18 @@ const spinner = (
   </div>
 );
 let allQuotes = null;
-let randomQuotesList = spinner;
+let randomQuotesList = null;
 let randomSample = [1,5,3,9,2,0,8,20,7];
 
 function ExploreCardsContainer() {
   const quotes = useContext(QuotesContext);
-  const [selectAll, setSelectAll] = useState(false);
   const [quotesList, setQuotesList] = useState();
+  const [selectAll, setSelectAll] = useState(false);
+  const [filter, setFilter] = useState("");
 
   useEffect(() => {
     if (quotes) {
-      if (randomQuotesList) {
+      if (!randomQuotesList) {
         randomQuotesList = randomSample.map((randomIndex) => {
           const quote = quotes[randomIndex];
           const source = quote.source === quote.author ? "" : quote.source;
@@ -58,11 +60,67 @@ function ExploreCardsContainer() {
         );
       });
 
+      allQuotes = (
+        <AnimatePresence exitBeforeEnter>
+          {allQuotes}
+        </AnimatePresence>
+      );
+
       setQuotesList(allQuotes);
     } else {
       setQuotesList(randomQuotesList);
     }
   }, [quotes, selectAll]);
+
+  useEffect(() => {
+    if (quotes && filter) {
+      let filteredQuotes = quotes.filter((quote) => {
+        return (
+          quote.author.toLowerCase().includes(filter.toLowerCase()) ||
+          quote.content.toLowerCase().includes(filter.toLowerCase()) ||
+          quote.source.toLowerCase().includes(filter.toLowerCase()) ||
+          quote.theme.toLowerCase().includes(filter.toLowerCase())
+        );
+      });
+
+      if (filteredQuotes.length < 1) {
+        filteredQuotes = (
+          <AnimatePresence exitBeforeEnter>
+            <NoMatches />
+          </AnimatePresence>
+        );
+        
+        setQuotesList(filteredQuotes);
+        console.log("No matches")
+      } else {
+          filteredQuotes = filteredQuotes.map((quote) => {
+            const source = quote.source === quote.author ? "" : quote.source;
+            return (
+              <QuoteCard
+              key={quote._id}
+              author={quote.author}
+              content={quote.content}
+              source={source}
+              theme={quote.theme}
+              />
+            );
+          });
+    
+          filteredQuotes = (
+            <AnimatePresence exitBeforeEnter>
+              {filteredQuotes}
+            </AnimatePresence>
+          );
+    
+          setQuotesList(filteredQuotes);
+        }
+      }
+    
+  }, [filter])
+
+  function handleFilter(searchTerm) {
+    setFilter(searchTerm);
+  }
 
   function handleSelectAll(isChecked) {
     setSelectAll(isChecked);
@@ -71,11 +129,14 @@ function ExploreCardsContainer() {
   return (
     <div className="exploreCardsContainer">
       <div className="controls">
-        <ExploreControls handleSelectAll={handleSelectAll} />
+        <ExploreControls
+          handleFilter={handleFilter}
+          handleSelectAll={handleSelectAll} 
+        />
       </div>
 
       <div className="cardsContainer">
-        {quotesList}
+        {quotes ? quotesList : spinner}
       </div>
     </div>
   );
