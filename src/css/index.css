@@ -802,7 +802,7 @@ code {
   align-self: center;
   justify-self: center;
   position: relative;
-  right: 340px;
+  right: 330px;
   border: 1px solid;
   height: 200px;
   width: 320px;
@@ -814,7 +814,6 @@ code {
   grid-template-columns: 1fr;
   background: #ffffff;
   color: #232A3B;
-  transition: all 0.2s;
 }
 .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .menuBtn {
   grid-row: 1;
