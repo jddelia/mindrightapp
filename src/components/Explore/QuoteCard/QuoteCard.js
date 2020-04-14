@@ -46,7 +46,9 @@ function QuoteCard({ author, content, source, theme }) {
         </div>
 
         <div className="qcMenuBtn">
-          {menuDisplayed && <SettingsMenu />}
+          <AnimatePresence>
+            {menuDisplayed ? <SettingsMenu /> : null}
+          </AnimatePresence>
           <img 
             className="menuBtn" 
             src={require('../../../assets/icons/menuIcon.svg')} 
