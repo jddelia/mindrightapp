@@ -1,11 +1,13 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const balanceIcon = require('../../assets/icons/balanceIcon.svg');
-const eyeIcon = require('../../assets/icons/eyeIconBrown.svg');
-const mindsetIcon = require('../../assets/icons/mindsetIcon.svg');
-const lionIcon = require('../../assets/icons/lionIcon.svg');
-const purposeIcon = require('../../assets/icons/purposeIcon.svg');
+import SettingsMenu from './SettingsMenu';
+
+const balanceIcon = require('../../../assets/icons/balanceIcon.svg');
+const eyeIcon = require('../../../assets/icons/eyeIconBrown.svg');
+const mindsetIcon = require('../../../assets/icons/mindsetIcon.svg');
+const lionIcon = require('../../../assets/icons/lionIcon.svg');
+const purposeIcon = require('../../../assets/icons/purposeIcon.svg');
 
 const icons = {
   "Courage": lionIcon,
@@ -16,6 +18,12 @@ const icons = {
 }
 
 function QuoteCard({ author, content, source, theme }) {
+  const [menuDisplayed, setMenuDisplay] = useState(false);
+
+  function handleMenuClick() {
+    setMenuDisplay(!menuDisplayed);
+  }
+
   return (
     <motion.div className="quoteCard"
       initial={{ opacity: 0, x: -10 }}
@@ -38,7 +46,13 @@ function QuoteCard({ author, content, source, theme }) {
         </div>
 
         <div className="qcMenuBtn">
-          <img className="menuBtn" src={require('../../assets/icons/menuIcon.svg')} alt="menu button" />
+          {menuDisplayed && <SettingsMenu />}
+          <img 
+            className="menuBtn" 
+            src={require('../../../assets/icons/menuIcon.svg')} 
+            alt="menu button" 
+            onClick={handleMenuClick}
+          />
         </div>
       </div>
 
@@ -57,7 +71,7 @@ function QuoteCard({ author, content, source, theme }) {
 
       <div className="quoteCardFooter">
         <div className="qcSelectBtn">
-          <img className="selectBtn" src={require('../../assets/icons/addIcon.svg')} alt="add button" />
+          <img className="selectBtn" src={require('../../../assets/icons/addIcon.svg')} alt="add button" />
         </div>
       </div>
     </motion.div>

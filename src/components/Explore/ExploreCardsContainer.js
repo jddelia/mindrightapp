@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AnimatePresence } from 'framer-motion';
 
-import QuoteCard from './QuoteCard';
+import QuoteCard from './QuoteCard/QuoteCard';
 import ExploreControls from './ExploreControls/ExploreControls';
 import NoMatches from './NoMatches';
 

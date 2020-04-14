@@ -790,17 +790,40 @@ code {
   letter-spacing: 2px;
 }
 .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn {
+  height: 30px;
+  width: 30px;
   justify-self: center;
   display: grid;
   grid-template-columns: 1fr;
-  transition: 0.2s all;
 }
-.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn:hover {
-  transform: scale(1.4);
-  cursor: pointer;
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu {
+  grid-row: 1;
+  grid-column: 1;
+  align-self: center;
+  justify-self: center;
+  position: relative;
+  right: 340px;
+  border: 1px solid;
+  height: 200px;
+  width: 320px;
+  border: 2px solid #eeeeee;
+  box-shadow: 4px 6px 10px #4a526311;
+  border-radius: 5px;
+  padding: 2%;
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #ffffff;
+  color: #232A3B;
+  transition: all 0.2s;
 }
 .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .menuBtn {
+  grid-row: 1;
+  grid-column: 1;
   height: 25px;
+  transition: 0.2s all;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .menuBtn:hover {
+  cursor: pointer;
 }
 .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardBody {
   padding: 0 4%;
