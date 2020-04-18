@@ -18,7 +18,7 @@ let filteredQuotes = null;
 let randomSample = [1,5,3,9,2,0,8,20,7];
 
 function ExploreCardsContainer() {
-  const quotes = useContext(QuotesContext);
+  const { quotes, setSavedQuotes, savedIDs, setSavedIDs, savedQuotes } = useContext(QuotesContext);
   const [quotesList, setQuotesList] = useState();
   const [selectAll, setSelectAll] = useState(false);
   const [filter, setFilter] = useState("");
@@ -29,14 +29,22 @@ function ExploreCardsContainer() {
         randomQuotesList = randomSample.map((randomIndex) => {
           const quote = quotes[randomIndex];
           const source = quote.source === quote.author ? "" : quote.source;
+          let isSaved = false;
+
+          if (savedIDs.includes(quote._id)) {
+            isSaved = true;
+          }
     
           return (
             <QuoteCard
-            key={quote._id}
-            author={quote.author}
-            content={quote.content}
-            source={source}
-            theme={quote.theme}
+              key={quote._id}
+              id={quote._id}
+              author={quote.author}
+              content={quote.content}
+              source={source}
+              theme={quote.theme}
+              isSaved={isSaved && " savedCard"}
+              addQuote={handleSavedQuotes}
             />
           );
         });
@@ -50,13 +58,22 @@ function ExploreCardsContainer() {
 
       allQuotes = quotes.map((quote) => {
         const source = quote.source === quote.author ? "" : quote.source;
+        let isSaved = false;
+
+        if (savedIDs.includes(quote._id)) {
+          isSaved = true;
+        }
+
         return (
           <QuoteCard
-          key={quote._id}
-          author={quote.author}
-          content={quote.content}
-          source={source}
-          theme={quote.theme}
+            key={quote._id}
+            id={quote._id}
+            author={quote.author}
+            content={quote.content}
+            source={source}
+            theme={quote.theme}
+            isSaved={isSaved && " savedCard"}
+            addQuote={handleSavedQuotes}
           />
         );
       });
@@ -75,7 +92,39 @@ function ExploreCardsContainer() {
         setQuotesList(randomQuotesList);
       }
     }
-  }, [quotes, selectAll]);
+  }, [quotes, selectAll, savedIDs]);
+
+  function handleSavedQuotes(id) {
+    if (savedIDs.includes(id)) {
+      const updatedQuotes = savedQuotes.filter((quote) => {
+        return quote._id !== id;
+      });
+
+      const updatedIDs = savedIDs.filter((quoteID) => {
+        return quoteID !== id;
+      });
+
+      setSavedQuotes(updatedQuotes);
+      setSavedIDs(updatedIDs);
+
+      // Reset quotes lists
+      randomQuotesList = null;
+      allQuotes = null;
+      return;
+    }
+
+    const savedQuote = quotes.filter((quote) => {
+      return quote._id === id;
+    })[0];
+
+    setSavedIDs((prevIDs) => [...prevIDs, id]);
+    
+    setSavedQuotes((prevQuotes) => [...prevQuotes, savedQuote]);
+    
+    // Reset quotes lists
+    randomQuotesList = null;
+    allQuotes = null;
+  }
 
   useEffect(() => {
     if (quotes && filter) {
@@ -99,13 +148,22 @@ function ExploreCardsContainer() {
       } else {
           filteredQuotes = filteredQuotes.map((quote) => {
             const source = quote.source === quote.author ? "" : quote.source;
+            let isSaved = false;
+
+            if (savedIDs.includes(quote._id)) {
+              isSaved = true;
+            }
+
             return (
               <QuoteCard
-              key={quote._id}
-              author={quote.author}
-              content={quote.content}
-              source={source}
-              theme={quote.theme}
+                key={quote._id}
+                id={quote._id}
+                author={quote.author}
+                content={quote.content}
+                source={source}
+                theme={quote.theme}
+                isSaved={isSaved && " savedCard"}
+                addQuote={handleSavedQuotes}
               />
             );
           });

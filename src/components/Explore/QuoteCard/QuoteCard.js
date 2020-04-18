@@ -9,6 +9,9 @@ const mindsetIcon = require('../../../assets/icons/mindsetIcon.svg');
 const lionIcon = require('../../../assets/icons/lionIcon.svg');
 const purposeIcon = require('../../../assets/icons/purposeIcon.svg');
 
+const addBtn = require('../../../assets/icons/addIcon.svg');
+const removeBtn = require('../../../assets/icons/deleteQuoteIcon.svg');
+
 const icons = {
   "Courage": lionIcon,
   "Mindset": mindsetIcon,
@@ -17,15 +20,20 @@ const icons = {
   "Focus": eyeIcon
 }
 
-function QuoteCard({ author, content, source, theme }) {
+function QuoteCard({ id, author, content, source, theme, isSaved, addQuote }) {
   const [menuDisplayed, setMenuDisplay] = useState(false);
+  const actionBtn = isSaved ? removeBtn : addBtn;
 
   function handleMenuClick() {
     setMenuDisplay(!menuDisplayed);
   }
 
+  function handleAddQuote() {
+    addQuote(id);
+  }
+
   return (
-    <motion.div className="quoteCard"
+    <motion.div className={`quoteCard${isSaved || ""}`}
       initial={{ opacity: 0, x: -10 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -10 }}
@@ -73,7 +81,12 @@ function QuoteCard({ author, content, source, theme }) {
 
       <div className="quoteCardFooter">
         <div className="qcSelectBtn">
-          <img className="selectBtn" src={require('../../../assets/icons/addIcon.svg')} alt="add button" />
+          <img 
+            className="selectBtn" 
+            src={actionBtn} 
+            alt="add button" 
+            onClick={handleAddQuote}
+          />
         </div>
       </div>
     </motion.div>

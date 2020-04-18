@@ -815,6 +815,12 @@ code {
   background: #ffffff;
   color: #232A3B;
 }
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection {
+  padding: 2%;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .settingsIcon {
+  height: 30px;
+}
 .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .menuBtn {
   grid-row: 1;
   grid-column: 1;
@@ -860,6 +866,17 @@ code {
 .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardFooter .selectBtn:hover {
   transform: scale(1.4);
   cursor: pointer;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardFooter .selectBtn:active {
+  transform: scale(1);
+}
+.explore .exploreCardsContainer .cardsContainer .savedCard {
+  border: 2px solid #0a1020;
+  box-shadow: 6px 8px 10px #dae3f88c;
+  transition: all 0.2s;
+}
+.explore .exploreCardsContainer .cardsContainer .savedCard:hover {
+  box-shadow: 6px 8px 20px #c2d3f56c;
 }
 .explore .exploreCardsContainer .noMatches {
   grid-column: 1/4;

@@ -13,7 +13,12 @@ function SettingsMenu() {
         x: { duration: 0, type: 'spring', stiffness: 180, damping: 15 }
       }}
     >
-    
+      <div className="menuSection">
+        <div className="menuTitle">
+          <span className="menuTitleText">Settings</span>
+        </div>
+        <div className="frequency"></div>
+      </div>
     </motion.div>
   );
 }

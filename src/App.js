@@ -13,11 +13,47 @@ import About from './components/About/About';
 import Login from './components/Login/Login';
 
 import QuotesContext from './context/QuotesContext';
+import localStorageUtils from './utils/localStorageUtils';
+
+const { 
+  fetchStoredQuotes, 
+  fetchStoredIDs, 
+  storeQuotes, 
+  storeIDs, 
+  serializeData 
+} = localStorageUtils;
+
+/*function fetchStoredQuotes() {
+  if (!localStorage.savedQuotes) {
+    localStorage.setItem('savedQuotes', "[]");
+    return [];
+  }
+  
+  return JSON.parse(localStorage.getItem('savedQuotes'));
+}
+
+async function storeQuotes(quotes, ids = null) {
+  localStorage.setItem('savedQuotes', quotes);
+  ids && localStorage.setItem('savedIDs', ids);
+}
+
+function serializeData(data) {
+  return JSON.stringify(data);
+}*/
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [quotes, setQuotes] = useState(null);
+  const [savedQuotes, setSavedQuotes] = useState(fetchStoredQuotes());
+  const [savedIDs, setSavedIDs] = useState(fetchStoredIDs());
   let display = null;
+
+  useEffect(() => {
+    const serializedQuotes = serializeData(savedQuotes);
+    const serializedIDs =serializeData(savedIDs)
+    storeQuotes(serializedQuotes);
+    storeIDs(serializedIDs);
+  }, [savedQuotes, savedIDs]);
 
   useEffect(() => {
     if (isLoading) {
@@ -39,7 +75,17 @@ function App() {
 
   return (
     <BrowserRouter>
-      <QuotesContext.Provider value={quotes}>
+      <QuotesContext.Provider 
+        value={
+          {
+            quotes,
+            savedQuotes,
+            setSavedQuotes,
+            savedIDs,
+            setSavedIDs
+          }
+        }
+      >
         <AnimatePresence exitBeforeEnter>
           {
             isLoading ? display :
