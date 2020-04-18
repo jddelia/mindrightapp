@@ -886,6 +886,38 @@ code {
   top: 5px !important;
 }
 
+.quoteAddedToast {
+  margin: 5px 0;
+  height: 60px;
+  width: 250px;
+  padding: 2%;
+  background: #fefefef6;
+  border: 2px solid #eeeeee;
+  border-radius: 2px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+}
+.quoteAddedToast .toastIcon {
+  height: 40px;
+}
+
+.quoteRemovedToast {
+  margin: 5px 0;
+  height: 60px;
+  width: 250px;
+  padding: 2%;
+  background: #fefefef6;
+  border: 2px solid #eeeeee;
+  border-radius: 2px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+}
+.quoteRemovedToast .toastIcon {
+  height: 40px;
+}
+
 .about {
   display: grid;
   grid-template-columns: 1fr;

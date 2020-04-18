@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { useToasts } from 'react-toast-notifications';
 
 import QuoteCard from './QuoteCard/QuoteCard';
 import ExploreControls from './ExploreControls/ExploreControls';
@@ -22,6 +23,7 @@ function ExploreCardsContainer() {
   const [quotesList, setQuotesList] = useState();
   const [selectAll, setSelectAll] = useState(false);
   const [filter, setFilter] = useState("");
+  const { addToast } = useToasts();
 
   useEffect(() => {
     if (quotes) {
@@ -95,6 +97,7 @@ function ExploreCardsContainer() {
   }, [quotes, selectAll, savedIDs]);
 
   function handleSavedQuotes(id) {
+    // Remove saved quote from localStorage
     if (savedIDs.includes(id)) {
       const updatedQuotes = savedQuotes.filter((quote) => {
         return quote._id !== id;
@@ -110,6 +113,10 @@ function ExploreCardsContainer() {
       // Reset quotes lists
       randomQuotesList = null;
       allQuotes = null;
+
+      addToast("Quote removed.", {
+        appearance: 'warning'
+      });
       return;
     }
 
@@ -124,6 +131,10 @@ function ExploreCardsContainer() {
     // Reset quotes lists
     randomQuotesList = null;
     allQuotes = null;
+
+    addToast("Quote saved.", {
+      appearance: 'success'
+    });
   }
 
   useEffect(() => {

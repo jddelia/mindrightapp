@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ToastProvider } from 'react-toast-notifications';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 
@@ -14,6 +15,7 @@ import Login from './components/Login/Login';
 
 import QuotesContext from './context/QuotesContext';
 import localStorageUtils from './utils/localStorageUtils';
+import CustomToast from './Toasts/CustomToast';
 
 const { 
   fetchStoredQuotes, 
@@ -22,24 +24,6 @@ const {
   storeIDs, 
   serializeData 
 } = localStorageUtils;
-
-/*function fetchStoredQuotes() {
-  if (!localStorage.savedQuotes) {
-    localStorage.setItem('savedQuotes', "[]");
-    return [];
-  }
-  
-  return JSON.parse(localStorage.getItem('savedQuotes'));
-}
-
-async function storeQuotes(quotes, ids = null) {
-  localStorage.setItem('savedQuotes', quotes);
-  ids && localStorage.setItem('savedIDs', ids);
-}
-
-function serializeData(data) {
-  return JSON.stringify(data);
-}*/
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -86,35 +70,41 @@ function App() {
           }
         }
       >
-        <AnimatePresence exitBeforeEnter>
-          {
-            isLoading ? display :
-            <motion.div 
-              className="App"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1}}
-            >
-              <Navbar />
-              <Header />
-              <Switch>
-                <Route exact path="/">
-                  <Home />
-                </Route>
-                <Route path="/explore">
-                  <Explore />
-                </Route>
-                <Route path="/about">
-                  <About />
-                </Route>
-                <Route exact path="/login">
-                  <Login />
-                </Route>
-              </Switch>
-              <Footer />
-            </motion.div>
-          }
-        </AnimatePresence>
+        <ToastProvider
+          autoDismiss
+          autoDismissTimeout={3000}
+          components={{ Toast: CustomToast }}
+        >
+          <AnimatePresence exitBeforeEnter>
+            {
+              isLoading ? display :
+              <motion.div 
+                className="App"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1}}
+              >
+                <Navbar />
+                <Header />
+                <Switch>
+                  <Route exact path="/">
+                    <Home />
+                  </Route>
+                  <Route path="/explore">
+                    <Explore />
+                  </Route>
+                  <Route path="/about">
+                    <About />
+                  </Route>
+                  <Route exact path="/login">
+                    <Login />
+                  </Route>
+                </Switch>
+                <Footer />
+              </motion.div>
+            }
+          </AnimatePresence>
+        </ToastProvider>
       </QuotesContext.Provider>
     </BrowserRouter>
   );

@@ -33,7 +33,8 @@ function QuoteCard({ id, author, content, source, theme, isSaved, addQuote }) {
   }
 
   return (
-    <motion.div className={`quoteCard${isSaved || ""}`}
+    <motion.div 
+      className={`quoteCard${isSaved || ""}`}
       initial={{ opacity: 0, x: -10 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -10 }}
