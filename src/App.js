@@ -72,7 +72,7 @@ function App() {
       >
         <ToastProvider
           autoDismiss
-          autoDismissTimeout={3000}
+          autoDismissTimeout={2500}
           components={{ Toast: CustomToast }}
         >
           <AnimatePresence exitBeforeEnter>

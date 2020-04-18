@@ -9,7 +9,7 @@ function QuoteAdded({ content }) {
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: 50 }}
       transition={{ 
-        opactiy: { duration: 0.8 },
+        opactiy: { duration: 0.5 },
         x: { duration: 0.2 },
       }}
     >
