@@ -30,6 +30,7 @@ function App() {
   const [quotes, setQuotes] = useState(null);
   const [savedQuotes, setSavedQuotes] = useState(fetchStoredQuotes());
   const [savedIDs, setSavedIDs] = useState(fetchStoredIDs());
+  const [frequency, setFrequency] = useState(1);
   let display = null;
 
   useEffect(() => {
@@ -66,7 +67,9 @@ function App() {
             savedQuotes,
             setSavedQuotes,
             savedIDs,
-            setSavedIDs
+            setSavedIDs,
+            frequency,
+            setFrequency
           }
         }
       >

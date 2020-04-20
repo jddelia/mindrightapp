@@ -804,7 +804,7 @@ code {
   position: relative;
   right: 330px;
   border: 1px solid;
-  height: 200px;
+  height: 150px;
   width: 320px;
   border: 2px solid #eeeeee;
   box-shadow: 4px 6px 10px #4a526311;
@@ -817,9 +817,28 @@ code {
 }
 .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection {
   padding: 2%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 25% 75%;
 }
-.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .settingsIcon {
-  height: 30px;
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .menuTitle {
+  justify-self: center;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .menuTitle .menuTitleText {
+  letter-spacing: 1px;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency {
+  padding: 1%;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm {
+  border: 1px solid;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm .frequencyLabel {
+  letter-spacing: 1px;
 }
 .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .menuBtn {
   grid-row: 1;
@@ -829,6 +848,33 @@ code {
 }
 .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .menuBtn:hover {
   cursor: pointer;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .settingsMenuWarning {
+  grid-row: 1;
+  grid-column: 1;
+  align-self: center;
+  justify-self: center;
+  position: relative;
+  right: 277px;
+  border: 1px solid;
+  height: 30px;
+  width: 270px;
+  border: 2px solid #ff0000;
+  box-shadow: 4px 6px 10px #4a526311;
+  border-radius: 5px;
+  padding: 2%;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  background: #ffe6e6;
+  color: #232A3B;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .settingsMenuWarning .menuSectionWarning {
+  padding: 2%;
+}
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .settingsMenuWarning .menuSectionWarning .menuWarningTitleText {
+  letter-spacing: 1px;
+  font-size: 12px;
 }
 .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardBody {
   padding: 0 4%;
@@ -891,7 +937,7 @@ code {
   height: 40px;
   width: 150px;
   padding: 2%;
-  background: #f8f8f8;
+  background: #ffffff;
   border: 1px solid #268deea1;
   border-radius: 2px;
   display: grid;
@@ -909,7 +955,7 @@ code {
   height: 40px;
   width: 150px;
   padding: 2%;
-  background: #f8f8f8;
+  background: #ffffff;
   border: 1px solid #f86e6ece;
   border-radius: 2px;
   display: grid;

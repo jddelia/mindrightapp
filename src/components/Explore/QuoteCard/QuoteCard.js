@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import SettingsMenu from './SettingsMenu';
+import MenuWarning from './MenuWarning';
 
 const balanceIcon = require('../../../assets/icons/balanceIcon.svg');
 const eyeIcon = require('../../../assets/icons/eyeIconBrown.svg');
@@ -56,7 +57,15 @@ function QuoteCard({ id, author, content, source, theme, isSaved, addQuote }) {
 
         <div className="qcMenuBtn">
           <AnimatePresence>
-            {menuDisplayed ? <SettingsMenu /> : null}
+            {
+              menuDisplayed ? (
+                isSaved ? (
+                  <SettingsMenu />
+                  ) : (
+                    <MenuWarning setMenuDisplay={setMenuDisplay} />
+                  )
+              ) : null
+            }
           </AnimatePresence>
           <img 
             className="menuBtn" 

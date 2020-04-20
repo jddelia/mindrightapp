@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useRef, useContext } from 'react';
 import { motion } from 'framer-motion';
 
+import QuotesContext from '../../../context/QuotesContext';
+
 function SettingsMenu() {
+  const { frequency, setFrequency } = useContext(QuotesContext);
+  const rangeRef = useRef();
+
+  function handleRangechange() {
+    const rangeVal = rangeRef.current.value;
+    console.log(rangeVal)
+  }
+
   return (
     <motion.div 
       className="settingsMenu"
@@ -17,7 +27,21 @@ function SettingsMenu() {
         <div className="menuTitle">
           <span className="menuTitleText">Settings</span>
         </div>
-        <div className="frequency"></div>
+        <div className="frequency">
+          <form className="frequencyForm">
+            <label className="frequencyLabel">
+              Quote Frequency: <span className="frequencyText">{frequency}</span> 
+            </label>
+            <input 
+              ref={rangeRef} 
+              id="frequencyRangeInput" 
+              type="range" 
+              min="0" 
+              max="12" 
+              onChange={handleRangechange}
+            />
+          </form>
+        </div>
       </div>
     </motion.div>
   );
