@@ -17,6 +17,7 @@ let allQuotes = null;
 let randomQuotesList = null;
 let filteredQuotes = null;
 let randomSample = [1,5,3,9,2,0,8,20,7];
+let forceRefresh = false;
 
 function ExploreCardsContainer() {
   const { quotes, setSavedQuotes, savedIDs, setSavedIDs, savedQuotes } = useContext(QuotesContext);
@@ -54,39 +55,41 @@ function ExploreCardsContainer() {
     }
 
     if (selectAll) {
+      // If cached
       if (allQuotes) {
+        setQuotesList(allQuotes);
+      } else {
+        allQuotes = quotes.map((quote) => {
+          const source = quote.source === quote.author ? "" : quote.source;
+          let isSaved = false;
+  
+          if (quote._id in savedIDs) {
+            isSaved = true;
+          }
+  
+          return (
+            <QuoteCard
+              key={quote._id}
+              id={quote._id}
+              author={quote.author}
+              content={quote.content}
+              source={source}
+              theme={quote.theme}
+              isSaved={isSaved && " savedCard"}
+              addQuote={handleSavedQuotes}
+            />
+          );
+        });
+  
+        allQuotes = (
+          <AnimatePresence exitBeforeEnter>
+            {allQuotes}
+          </AnimatePresence>
+        );
+  
         setQuotesList(allQuotes);
       }
 
-      allQuotes = quotes.map((quote) => {
-        const source = quote.source === quote.author ? "" : quote.source;
-        let isSaved = false;
-
-        if (quote._id in savedIDs) {
-          isSaved = true;
-        }
-
-        return (
-          <QuoteCard
-            key={quote._id}
-            id={quote._id}
-            author={quote.author}
-            content={quote.content}
-            source={source}
-            theme={quote.theme}
-            isSaved={isSaved && " savedCard"}
-            addQuote={handleSavedQuotes}
-          />
-        );
-      });
-
-      allQuotes = (
-        <AnimatePresence exitBeforeEnter>
-          {allQuotes}
-        </AnimatePresence>
-      );
-
-      setQuotesList(allQuotes);
     } else {
       if (filter && filteredQuotes) {
         setQuotesList(filteredQuotes);
@@ -103,14 +106,11 @@ function ExploreCardsContainer() {
         return quote._id !== id;
       });
 
-      /*const updatedIDs = savedIDs.filter((quoteID) => {
-        return quoteID !== id;
-      });*/
-
       delete savedIDs[id];
 
       setSavedQuotes(updatedQuotes);
       setSavedIDs({ ...savedIDs }); // Fix quoteCard isSaved update bug
+      forceRefresh = !forceRefresh; // Refresh filtered quotes
 
       // Reset quotes lists
       randomQuotesList = null;
@@ -138,6 +138,7 @@ function ExploreCardsContainer() {
     // Reset quotes lists
     randomQuotesList = null;
     allQuotes = null;
+    forceRefresh = !forceRefresh // Refresh filtered quotes
 
     addToast("Quote saved.", {
       appearance: 'success'
@@ -164,39 +165,39 @@ function ExploreCardsContainer() {
 
         setQuotesList(filteredQuotes);
       } else {
-          filteredQuotes = filteredQuotes.map((quote) => {
-            const source = quote.source === quote.author ? "" : quote.source;
-            let isSaved = false;
+        filteredQuotes = filteredQuotes.map((quote) => {
+          const source = quote.source === quote.author ? "" : quote.source;
+          let isSaved = false;
 
-            if (quote._id in savedIDs) {
-              isSaved = true;
-            }
+          if (quote._id in savedIDs) {
+            isSaved = true;
+          }
 
-            return (
-              <QuoteCard
-                key={quote._id}
-                id={quote._id}
-                author={quote.author}
-                content={quote.content}
-                source={source}
-                theme={quote.theme}
-                isSaved={isSaved && " savedCard"}
-                addQuote={handleSavedQuotes}
-              />
-            );
-          });
-    
-          filteredQuotes = (
-            <AnimatePresence exitBeforeEnter>
-              {filteredQuotes}
-            </AnimatePresence>
+          return (
+            <QuoteCard
+              key={quote._id}
+              id={quote._id}
+              author={quote.author}
+              content={quote.content}
+              source={source}
+              theme={quote.theme}
+              isSaved={isSaved && " savedCard"}
+              addQuote={handleSavedQuotes}
+            />
           );
+        });
     
-          setQuotesList(filteredQuotes);
-        }
+        filteredQuotes = (
+          <AnimatePresence exitBeforeEnter>
+            {filteredQuotes}
+          </AnimatePresence>
+        );
+  
+        setQuotesList(filteredQuotes);
       }
+    }
     
-  }, [filter])
+  }, [filter, forceRefresh])
 
   function handleFilter(searchTerm) {
     setFilter(searchTerm);
