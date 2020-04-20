@@ -1,15 +1,23 @@
-import React, { useRef, useContext } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { motion } from 'framer-motion';
 
 import QuotesContext from '../../../context/QuotesContext';
 
-function SettingsMenu() {
-  const { frequency, setFrequency } = useContext(QuotesContext);
+function SettingsMenu({ cardID }) {
+  const { savedIDs, setSavedIDs } = useContext(QuotesContext);
+  const { notificationFrequency } = savedIDs[cardID];
+  const [frequency, setFrequency] = useState( notificationFrequency || 2);
   const rangeRef = useRef();
+
+  useEffect(() => {
+    const updatedSavedID = savedIDs[cardID];
+    updatedSavedID.notificationFrequency = frequency;
+    setSavedIDs((prevIDs) => ({ ...prevIDs, updatedSavedID }));
+  }, [frequency])
 
   function handleRangechange() {
     const rangeVal = rangeRef.current.value;
-    console.log(rangeVal)
+    setFrequency(rangeVal);
   }
 
   return (
@@ -30,14 +38,16 @@ function SettingsMenu() {
         <div className="frequency">
           <form className="frequencyForm">
             <label className="frequencyLabel">
-              Quote Frequency: <span className="frequencyText">{frequency}</span> 
+              Notification Frequency: <span className="frequencyNumber">{frequency}</span> 
             </label>
             <input 
               ref={rangeRef} 
               id="frequencyRangeInput" 
               type="range" 
-              min="0" 
+              value={frequency}
+              min="1" 
               max="12" 
+              step="1"
               onChange={handleRangechange}
             />
           </form>

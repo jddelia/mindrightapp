@@ -30,12 +30,12 @@ function App() {
   const [quotes, setQuotes] = useState(null);
   const [savedQuotes, setSavedQuotes] = useState(fetchStoredQuotes());
   const [savedIDs, setSavedIDs] = useState(fetchStoredIDs());
-  const [frequency, setFrequency] = useState(1);
+  const [frequency, setFrequency] = useState(2);
   let display = null;
 
   useEffect(() => {
     const serializedQuotes = serializeData(savedQuotes);
-    const serializedIDs =serializeData(savedIDs)
+    const serializedIDs = serializeData(savedIDs);
     storeQuotes(serializedQuotes);
     storeIDs(serializedIDs);
   }, [savedQuotes, savedIDs]);

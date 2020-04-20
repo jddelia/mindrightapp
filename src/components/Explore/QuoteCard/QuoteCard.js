@@ -30,6 +30,12 @@ function QuoteCard({ id, author, content, source, theme, isSaved, addQuote }) {
   }
 
   function handleAddQuote() {
+    // If warning menu showing while adding quote
+    // Prevents settings menu popping up after saving quote
+    if (menuDisplayed && !isSaved) {
+      setMenuDisplay(false);
+    }
+
     addQuote(id);
   }
 
@@ -60,7 +66,7 @@ function QuoteCard({ id, author, content, source, theme, isSaved, addQuote }) {
             {
               menuDisplayed ? (
                 isSaved ? (
-                  <SettingsMenu />
+                  <SettingsMenu cardID={id} />
                   ) : (
                     <MenuWarning setMenuDisplay={setMenuDisplay} />
                   )

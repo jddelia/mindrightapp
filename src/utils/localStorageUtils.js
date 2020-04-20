@@ -10,7 +10,7 @@ const utils = {
 
   fetchStoredIDs: () => {
     if (!localStorage.savedIDs) {
-      localStorage.setItem('savedIDs', "[]");
+      localStorage.setItem('savedIDs', "{}");
       return [];
     }
     

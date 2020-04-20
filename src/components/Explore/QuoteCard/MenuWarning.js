@@ -5,7 +5,7 @@ function MenuWarning({ setMenuDisplay }) {
   useEffect(() => {
     const menuTimeout = setTimeout(() => {
       setMenuDisplay(false);
-    }, 1000);
+    }, 2000);
 
     return () => clearTimeout(menuTimeout);
   })

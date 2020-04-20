@@ -33,7 +33,7 @@ function ExploreCardsContainer() {
           const source = quote.source === quote.author ? "" : quote.source;
           let isSaved = false;
 
-          if (savedIDs.includes(quote._id)) {
+          if (quote._id in savedIDs) {
             isSaved = true;
           }
     
@@ -62,7 +62,7 @@ function ExploreCardsContainer() {
         const source = quote.source === quote.author ? "" : quote.source;
         let isSaved = false;
 
-        if (savedIDs.includes(quote._id)) {
+        if (quote._id in savedIDs) {
           isSaved = true;
         }
 
@@ -98,17 +98,19 @@ function ExploreCardsContainer() {
 
   function handleSavedQuotes(id) {
     // Remove saved quote from localStorage
-    if (savedIDs.includes(id)) {
+    if (id in savedIDs) {
       const updatedQuotes = savedQuotes.filter((quote) => {
         return quote._id !== id;
       });
 
-      const updatedIDs = savedIDs.filter((quoteID) => {
+      /*const updatedIDs = savedIDs.filter((quoteID) => {
         return quoteID !== id;
-      });
+      });*/
+
+      delete savedIDs[id];
 
       setSavedQuotes(updatedQuotes);
-      setSavedIDs(updatedIDs);
+      setSavedIDs({ ...savedIDs }); // Fix quoteCard isSaved update bug
 
       // Reset quotes lists
       randomQuotesList = null;
@@ -120,11 +122,16 @@ function ExploreCardsContainer() {
       return;
     }
 
+    const savedID = {};
+    savedID[id] = {
+      notificationFrequency: 2
+    };
+
     const savedQuote = quotes.filter((quote) => {
       return quote._id === id;
     })[0];
 
-    setSavedIDs((prevIDs) => [...prevIDs, id]);
+    setSavedIDs((prevIDs) => ({ ...prevIDs, ...savedID }));
     
     setSavedQuotes((prevQuotes) => [...prevQuotes, savedQuote]);
     
