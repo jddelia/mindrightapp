@@ -12,7 +12,7 @@ function SettingsMenu({ cardID }) {
   useEffect(() => {
     const updatedSavedID = savedIDs[cardID];
     updatedSavedID.notificationFrequency = frequency;
-    setSavedIDs((prevIDs) => ({ ...prevIDs, updatedSavedID }));
+    setSavedIDs((prevIDs) => ({ ...prevIDs, ...updatedSavedID }));
   }, [frequency])
 
   function handleRangechange() {
