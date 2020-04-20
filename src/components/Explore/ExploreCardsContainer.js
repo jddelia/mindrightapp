@@ -168,7 +168,7 @@ function ExploreCardsContainer() {
             const source = quote.source === quote.author ? "" : quote.source;
             let isSaved = false;
 
-            if (id in savedIDs) {
+            if (quote._id in savedIDs) {
               isSaved = true;
             }
 
