@@ -5,15 +5,20 @@ import QuotesContext from '../../../context/QuotesContext';
 
 function SettingsMenu({ cardID }) {
   const { savedIDs, setSavedIDs } = useContext(QuotesContext);
-  const [notificationFrequency, setNotificationFrequency] = useState(null);
+
+  // Temp fix for notificationFrequency bug when card unsaved
+  // while settings menu open.
+  let notificationFrequency = null;
+  try {
+    notificationFrequency = savedIDs[cardID].notificationFrequency;
+  } catch (err) {
+    console.log("Close settings before unsaving.");
+  }
+
   const [frequency, setFrequency] = useState( notificationFrequency || 2);
   const rangeRef = useRef();
 
   useEffect(() => {
-    if (!notificationFrequency && savedIDs[cardID]) {
-      setNotificationFrequency(savedIDs[cardID].notificationFrequency);
-    }
-    
     savedIDs[cardID].notificationFrequency = frequency;
     setSavedIDs((prevIDs) => ({ ...prevIDs }));
   }, [frequency]);
