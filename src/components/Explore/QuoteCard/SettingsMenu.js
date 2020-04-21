@@ -5,11 +5,15 @@ import QuotesContext from '../../../context/QuotesContext';
 
 function SettingsMenu({ cardID }) {
   const { savedIDs, setSavedIDs } = useContext(QuotesContext);
-  const { notificationFrequency } = savedIDs[cardID];
+  const [notificationFrequency, setNotificationFrequency] = useState(null);
   const [frequency, setFrequency] = useState( notificationFrequency || 2);
   const rangeRef = useRef();
 
   useEffect(() => {
+    if (!notificationFrequency && savedIDs[cardID]) {
+      setNotificationFrequency(savedIDs[cardID].notificationFrequency);
+    }
+    
     savedIDs[cardID].notificationFrequency = frequency;
     setSavedIDs((prevIDs) => ({ ...prevIDs }));
   }, [frequency]);
