@@ -37,7 +37,7 @@ function SettingsMenu({ cardID }) {
         <div className="frequency">
           <form className="frequencyForm">
             <label className="frequencyLabel">
-              Notification Frequency: <span className="frequencyNumber">{frequency}</span> 
+              Notification Frequency: <span className="frequencyNumber">{frequency}</span> (hrs) 
             </label>
             <input 
               ref={rangeRef} 

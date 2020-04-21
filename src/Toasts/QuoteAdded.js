@@ -13,7 +13,7 @@ function QuoteAdded({ content }) {
         x: { duration: 0.2 },
       }}
     >
-      <img className="toastIcon" src={require('../assets/icons/quoteAddedIcon.svg')} />
+      <img className="toastIcon" src={require('../assets/icons/quoteAddedIcon.svg')} alt="checkmark" />
       <div className="toastContent">
         {content}
       </div>

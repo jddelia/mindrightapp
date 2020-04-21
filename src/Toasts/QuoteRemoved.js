@@ -13,7 +13,7 @@ function QuoteRemoved({ content }) {
         x: { duration: 0.2 },
       }}
     >
-      <img className="toastIcon" src={require('../assets/icons/quoteRemovedIcon.svg')} />
+      <img className="toastIcon" src={require('../assets/icons/quoteRemovedIcon.svg')} alt="trash can" />
       <div className="toastContent">
         {content}
       </div>

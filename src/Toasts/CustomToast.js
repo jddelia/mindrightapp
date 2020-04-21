@@ -1,5 +1,4 @@
 import React from 'react';
-import { AnimatePresence } from 'framer-motion';
 
 import QuoteAdded from './QuoteAdded';
 import QuoteRemoved from './QuoteRemoved';
