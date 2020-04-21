@@ -1063,6 +1063,12 @@ code {
   padding: 2%;
 }
 
+.profile {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 2%;
+}
+
 .login {
   display: grid;
   grid-template-columns: 1fr;

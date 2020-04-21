@@ -11,7 +11,7 @@ import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer';
 import Explore from './components/Explore/Explore';
 import About from './components/About/About';
-import Login from './components/Login/Login';
+import Profile from './components/Profile/Profile';
 
 import QuotesContext from './context/QuotesContext';
 import localStorageUtils from './utils/localStorageUtils';
@@ -99,8 +99,8 @@ function App() {
                   <Route path="/about">
                     <About />
                   </Route>
-                  <Route exact path="/login">
-                    <Login />
+                  <Route exact path="/profile">
+                    <Profile />
                   </Route>
                 </Switch>
                 <Footer />
