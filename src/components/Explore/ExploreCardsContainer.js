@@ -197,7 +197,7 @@ function ExploreCardsContainer() {
       }
     }
     
-  }, [filter, forceRefresh])
+  }, [filter, forceRefresh]);
 
   function handleFilter(searchTerm) {
     setFilter(searchTerm);
