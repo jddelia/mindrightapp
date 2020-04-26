@@ -1021,6 +1021,326 @@ code {
   top: 5px !important;
 }
 
+.about {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 2%;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 2%;
+}
+.profile .profileCardsContainer {
+  margin-top: 4%;
+  padding: 2%;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.profile .profileCardsContainer .cardsContainer {
+  margin-top: 4%;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 20px;
+  row-gap: 40px;
+  justify-items: center;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard {
+  margin-top: 4%;
+  height: fit-content;
+  width: 85%;
+  border: 2px solid #eeeeee;
+  box-shadow: 4px 6px 10px #4a526311;
+  border-radius: 5px;
+  padding: 2%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 20% 60% 20%;
+  background: #ffffff;
+  color: #232A3B;
+  transition: all 0.2s;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard:hover {
+  box-shadow: 6px 12px 20px #b8b8b831;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  align-items: center;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcThemeIcon {
+  height: 50px;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .themeIcon {
+  border: 2px solid;
+  border-radius: 50%;
+  padding: 5%;
+  height: 30px;
+  background: #5583C3;
+  background: linear-gradient(to top left, #5583C3, #E8F7FB);
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .Focus {
+  background: linear-gradient(to top left, #f7e783, #f5f1c0);
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .Mind\/Body {
+  background: linear-gradient(to top left, #5583C3, #E8F7FB);
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .Mindset {
+  background: linear-gradient(to top left, #399755, #d8f7d7);
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .Courage {
+  background: linear-gradient(to top left, #51c7cf, #efe8fb);
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .Purpose {
+  background: linear-gradient(to top left, #d3f3df, #f3e8fb);
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcThemeText {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-left: 8%;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcThemeText .themeText {
+  font-family: "Hammersmith One", sans-serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn {
+  height: 30px;
+  width: 30px;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu {
+  grid-row: 1;
+  grid-column: 1;
+  align-self: center;
+  justify-self: center;
+  position: relative;
+  right: 330px;
+  height: 150px;
+  width: 320px;
+  border: 2px solid #a5a5a5;
+  box-shadow: 4px 6px 10px #4a526311;
+  border-radius: 5px;
+  padding: 2%;
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #ffffff;
+  color: #232A3B;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection {
+  padding: 2%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 30% 60%;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .menuTitle {
+  justify-self: center;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .menuTitle .menuTitleText {
+  letter-spacing: 1px;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency {
+  padding: 1%;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm .frequencyLabel {
+  letter-spacing: 1px;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm .frequencyLabel .frequencyNumber {
+  padding: 0 5px;
+  background: #6B6785;
+  border-radius: 2px;
+  color: #ffffff;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm input[type=range] {
+  -webkit-appearance: none;
+  width: 70%;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm input[type=range]:focus {
+  outline: none;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000;
+  background: #2497E3;
+  border-radius: 2px;
+  border: 0px solid #000000;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm input[type=range]::-webkit-slider-runnable-track:focus {
+  background: #2497E3;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #2497E3;
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  background: #A1D0FF;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -7px;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000;
+  background: #2497E3;
+  border-radius: 2px;
+  border: 0px solid #000000;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #2497E3;
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  background: #A1D0FF;
+  cursor: pointer;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm input[type=range]::-ms-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm input[type=range]::-ms-fill-lower {
+  background: #2497E3;
+  border: 0px solid #000000;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px #000000;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm input[type=range]::-ms-fill-lower::-ms-fill-lower {
+  background: #2497E3;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm input[type=range]::-ms-fill-upper {
+  background: #2497E3;
+  border: 0px solid #000000;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px #000000;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm input[type=range]::-ms-fill-upper::-ms-fill-upper {
+  background: #2497E3;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #2497E3;
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  background: #A1D0FF;
+  cursor: pointer;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .menuBtn {
+  grid-row: 1;
+  grid-column: 1;
+  height: 25px;
+  transition: 0.2s all;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .menuBtn:hover {
+  cursor: pointer;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .settingsMenuWarning {
+  grid-row: 1;
+  grid-column: 1;
+  align-self: center;
+  justify-self: center;
+  position: relative;
+  right: 277px;
+  border: 1px solid;
+  height: 30px;
+  width: 270px;
+  border: 2px solid #ff0000;
+  box-shadow: 4px 6px 10px #4a526311;
+  border-radius: 5px;
+  padding: 2%;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  background: #ffe6e6;
+  color: #232A3B;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .settingsMenuWarning .menuSectionWarning {
+  padding: 2%;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .settingsMenuWarning .menuSectionWarning .menuWarningTitleText {
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardBody {
+  padding: 0 4%;
+  display: grid;
+  grid-template-columns: 1fr;
+  font-family: "Roboto" sans-serif;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardBody .mainContent {
+  width: 95%;
+  font-weight: 300;
+  line-height: 2;
+  font-size: 14px;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardBody .qcAuthor {
+  width: 70%;
+  font-size: 12px;
+  margin-left: 2%;
+  letter-spacing: 2px;
+  line-height: 1.7;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardFooter {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardFooter .qcSelectBtn {
+  grid-column: 2;
+  margin-right: 30px;
+  padding: 4%;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardFooter .selectBtn {
+  height: 30px;
+  background: #ffffff;
+  transition: 0.2s all;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardFooter .selectBtn:hover {
+  transform: scale(1.4);
+  cursor: pointer;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardFooter .selectBtn:active {
+  transform: scale(1);
+}
+.profile .profileCardsContainer .cardsContainer .savedCard {
+  border: 2px solid #0a1020;
+  box-shadow: 6px 8px 10px #dae3f88c;
+  transition: all 0.2s;
+}
+.profile .profileCardsContainer .cardsContainer .savedCard:hover {
+  box-shadow: 6px 8px 20px #c2d3f56c;
+}
+
+.login {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 2%;
+}
+
 .quoteAddedToast {
   margin: 5px 0;
   height: 40px;
@@ -1034,6 +1354,9 @@ code {
   align-items: center;
   font-weight: 300;
   font-size: 14px;
+}
+.quoteAddedToast:hover {
+  cursor: pointer;
 }
 .quoteAddedToast .toastIcon {
   height: 35px;
@@ -1053,26 +1376,11 @@ code {
   font-weight: 300;
   font-size: 14px;
 }
+.quoteRemovedToast:hover {
+  cursor: pointer;
+}
 .quoteRemovedToast .toastIcon {
   height: 35px;
-}
-
-.about {
-  display: grid;
-  grid-template-columns: 1fr;
-  padding: 2%;
-}
-
-.profile {
-  display: grid;
-  grid-template-columns: 1fr;
-  padding: 2%;
-}
-
-.login {
-  display: grid;
-  grid-template-columns: 1fr;
-  padding: 2%;
 }
 
 /* LOADER */

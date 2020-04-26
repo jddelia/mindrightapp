@@ -1,6 +1,6 @@
 import React from 'react';
 
-import QuoteCardProto from '../../QuoteCard/QuoteCardProto';
+import QuoteCardProto from '../../QuoteCardProto/QuoteCardProto';
 
 function Graphic() {
   return (

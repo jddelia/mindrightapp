@@ -4,14 +4,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SettingsMenu from './SettingsMenu';
 import MenuWarning from './MenuWarning';
 
-const balanceIcon = require('../../../assets/icons/balanceIcon.svg');
-const eyeIcon = require('../../../assets/icons/eyeIconBrown.svg');
-const mindsetIcon = require('../../../assets/icons/mindsetIcon.svg');
-const lionIcon = require('../../../assets/icons/lionIcon.svg');
-const purposeIcon = require('../../../assets/icons/purposeIcon.svg');
+const balanceIcon = require('../../assets/icons/balanceIcon.svg');
+const eyeIcon = require('../../assets/icons/eyeIconBrown.svg');
+const mindsetIcon = require('../../assets/icons/mindsetIcon.svg');
+const lionIcon = require('../../assets/icons/lionIcon.svg');
+const purposeIcon = require('../../assets/icons/purposeIcon.svg');
 
-const addBtn = require('../../../assets/icons/addIcon.svg');
-const removeBtn = require('../../../assets/icons/deleteQuoteIcon.svg');
+const addBtn = require('../../assets/icons/addIcon.svg');
+const removeBtn = require('../../assets/icons/deleteQuoteIcon.svg');
 
 const icons = {
   "Courage": lionIcon,
@@ -44,7 +44,7 @@ function QuoteCard({ id, author, content, source, theme, isSaved, addQuote }) {
       className={`quoteCard${isSaved || ""}`}
       initial={{ opacity: 0, x: -10 }}
       animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -10 }}
+      exit={{ opacity: 0, x: 0 }}
       whileHover={{ y: -10 }}
       transition={{ 
         opactiy: { duration: 0.8 },
@@ -75,7 +75,7 @@ function QuoteCard({ id, author, content, source, theme, isSaved, addQuote }) {
           </AnimatePresence>
           <img 
             className="menuBtn" 
-            src={require('../../../assets/icons/menuIcon.svg')} 
+            src={require('../../assets/icons/menuIcon.svg')} 
             alt="menu button" 
             onClick={handleMenuClick}
           />

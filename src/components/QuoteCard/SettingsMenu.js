@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import { motion } from 'framer-motion';
 
-import QuotesContext from '../../../context/QuotesContext';
+import QuotesContext from '../../context/QuotesContext';
 
 function SettingsMenu({ cardID }) {
   const { savedIDs, setSavedIDs } = useContext(QuotesContext);

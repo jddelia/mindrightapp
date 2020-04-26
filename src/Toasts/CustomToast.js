@@ -3,10 +3,10 @@ import React from 'react';
 import QuoteAdded from './QuoteAdded';
 import QuoteRemoved from './QuoteRemoved';
 
-function CustomToast({ appearance, children }) {
+function CustomToast({ appearance, children, onDismiss }) {
   let toast = appearance === 'success' ? (
-    <QuoteAdded content={children} />
-  ) : ( <QuoteRemoved content={children} /> );
+    <QuoteAdded content={children} dismiss={onDismiss} />
+  ) : ( <QuoteRemoved content={children} dismiss={onDismiss} /> );
 
   return (
     <div>

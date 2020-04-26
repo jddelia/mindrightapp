@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-function QuoteRemoved({ content }) {
+function QuoteRemoved({ content, dismiss }) {
   return (
     <motion.div 
       className="quoteRemovedToast"
+      onClick={dismiss}
       initial={{ opacity: 0, x: 50 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: 50 }}

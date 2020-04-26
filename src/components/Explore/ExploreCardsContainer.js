@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { useToasts } from 'react-toast-notifications';
 
-import QuoteCard from './QuoteCard/QuoteCard';
+import QuoteCard from '../QuoteCard/QuoteCard';
 import ExploreControls from './ExploreControls/ExploreControls';
 import NoMatches from './NoMatches';
 
@@ -51,6 +51,12 @@ function ExploreCardsContainer() {
             />
           );
         });
+
+        randomQuotesList = (
+          <AnimatePresence>
+            {randomQuotesList}
+          </AnimatePresence>
+        );
       }
     }
 
@@ -82,7 +88,7 @@ function ExploreCardsContainer() {
         });
   
         allQuotes = (
-          <AnimatePresence exitBeforeEnter>
+          <AnimatePresence>
             {allQuotes}
           </AnimatePresence>
         );
@@ -97,53 +103,14 @@ function ExploreCardsContainer() {
         setQuotesList(randomQuotesList);
       }
     }
-  }, [quotes, selectAll, savedIDs]);
 
-  function handleSavedQuotes(id) {
-    // Remove saved quote from localStorage
-    if (id in savedIDs) {
-      const updatedQuotes = savedQuotes.filter((quote) => {
-        return quote._id !== id;
-      });
-
-      delete savedIDs[id];
-
-      setSavedQuotes(updatedQuotes);
-      setSavedIDs({ ...savedIDs }); // Fix quoteCard isSaved update bug
-      forceRefresh = !forceRefresh; // Refresh filtered quotes
-
-      // Reset quotes lists
-      randomQuotesList = null;
+    // Clean up cached values
+    return () => {
       allQuotes = null;
-
-      addToast("Quote removed.", {
-        appearance: 'warning'
-      });
-      return;
+      randomQuotesList = null;
+      filteredQuotes = null;
     }
-
-    const savedID = {};
-    savedID[id] = {
-      notificationFrequency: 2
-    };
-
-    const savedQuote = quotes.filter((quote) => {
-      return quote._id === id;
-    })[0];
-
-    setSavedIDs((prevIDs) => ({ ...prevIDs, ...savedID }));
-    
-    setSavedQuotes((prevQuotes) => [...prevQuotes, savedQuote]);
-    
-    // Reset quotes lists
-    randomQuotesList = null;
-    allQuotes = null;
-    forceRefresh = !forceRefresh // Refresh filtered quotes
-
-    addToast("Quote saved.", {
-      appearance: 'success'
-    });
-  }
+  }, [quotes, selectAll, savedIDs]);
 
   useEffect(() => {
     if (quotes && filter) {
@@ -158,7 +125,7 @@ function ExploreCardsContainer() {
 
       if (filteredQuotes.length < 1) {
         filteredQuotes = (
-          <AnimatePresence exitBeforeEnter>
+          <AnimatePresence>
             <NoMatches />
           </AnimatePresence>
         );
@@ -188,7 +155,7 @@ function ExploreCardsContainer() {
         });
     
         filteredQuotes = (
-          <AnimatePresence exitBeforeEnter>
+          <AnimatePresence>
             {filteredQuotes}
           </AnimatePresence>
         );
@@ -198,6 +165,53 @@ function ExploreCardsContainer() {
     }
     
   }, [filter, forceRefresh]);
+
+  function handleSavedQuotes(id) {
+    // Remove saved quote from localStorage
+    if (id in savedIDs) {
+      const updatedQuotes = savedQuotes.filter((quote) => {
+        return quote._id !== id;
+      });
+
+      delete savedIDs[id];
+
+      setSavedQuotes(updatedQuotes);
+      setSavedIDs({ ...savedIDs }); // Fix quoteCard isSaved update bug
+
+      // Reset quotes lists
+      randomQuotesList = null;
+      allQuotes = null;
+      forceRefresh = !forceRefresh; // Refresh filtered quotes
+
+      addToast("Quote removed.", {
+        appearance: 'warning'
+      });
+      return;
+    }
+
+    // Save quote if id is not in savedIDs
+    const savedID = {};
+    savedID[id] = {
+      notificationFrequency: 2
+    };
+
+    const savedQuote = quotes.filter((quote) => {
+      return quote._id === id;
+    })[0];
+
+    setSavedIDs((prevIDs) => ({ ...prevIDs, ...savedID }));
+    
+    setSavedQuotes((prevQuotes) => [...prevQuotes, savedQuote]);
+    
+    // Reset quotes lists
+    randomQuotesList = null;
+    allQuotes = null;
+    forceRefresh = !forceRefresh // Refresh filtered quotes
+
+    addToast("Quote saved.", {
+      appearance: 'success'
+    });
+  }
 
   function handleFilter(searchTerm) {
     setFilter(searchTerm);
