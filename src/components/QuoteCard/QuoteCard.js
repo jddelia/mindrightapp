@@ -66,7 +66,7 @@ function QuoteCard({ id, author, content, source, theme, isSaved, addQuote }) {
             {
               menuDisplayed ? (
                 isSaved ? (
-                  <SettingsMenu cardID={id} />
+                  <SettingsMenu cardID={id} setMenuDisplay={setMenuDisplay} />
                   ) : (
                     <MenuWarning setMenuDisplay={setMenuDisplay} />
                   )

@@ -814,6 +814,9 @@ code {
   background: #ffffff;
   color: #232A3B;
 }
+.explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu:focus {
+  outline: none;
+}
 .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection {
   padding: 2%;
   display: grid;
@@ -1134,6 +1137,9 @@ code {
   grid-template-columns: 1fr;
   background: #ffffff;
   color: #232A3B;
+}
+.profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu:focus {
+  outline: none;
 }
 .profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection {
   padding: 2%;

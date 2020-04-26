@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 import QuotesContext from '../../context/QuotesContext';
 
-function SettingsMenu({ cardID }) {
+function SettingsMenu({ cardID, setMenuDisplay }) {
   const { savedIDs, setSavedIDs } = useContext(QuotesContext);
 
   // Temp fix for notificationFrequency bug when card unsaved
@@ -16,21 +16,37 @@ function SettingsMenu({ cardID }) {
   }
 
   const [frequency, setFrequency] = useState( notificationFrequency || 2);
+  const menuRef = useRef();
   const rangeRef = useRef();
+
+  useEffect(() => {
+    menuRef.current.focus();
+  }, []);
 
   useEffect(() => {
     savedIDs[cardID].notificationFrequency = frequency;
     setSavedIDs((prevIDs) => ({ ...prevIDs }));
   }, [frequency]);
 
-  function handleRangechange() {
+  function handleRangeChange() {
     const rangeVal = rangeRef.current.value;
     setFrequency(rangeVal);
+  }
+
+  function handleMenuBlur(e) {
+    // If click not within settings menu, close it
+    if (!(e.relatedTarget === menuRef.current || e.relatedTarget === rangeRef.current)) {
+      setMenuDisplay(false);
+    }
+    return;
   }
 
   return (
     <motion.div 
       className="settingsMenu"
+      tabIndex="0"
+      ref={menuRef}
+      onBlur={handleMenuBlur}
       initial={{ opacity: 0, x: 50 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0 }}
@@ -56,7 +72,7 @@ function SettingsMenu({ cardID }) {
               min="1" 
               max="12" 
               step="1"
-              onChange={handleRangechange}
+              onChange={handleRangeChange}
             />
           </form>
         </div>
