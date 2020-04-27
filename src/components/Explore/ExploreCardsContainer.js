@@ -108,7 +108,6 @@ function ExploreCardsContainer() {
     return () => {
       allQuotes = null;
       randomQuotesList = null;
-      filteredQuotes = null;
     }
   }, [quotes, selectAll, savedIDs]);
 
