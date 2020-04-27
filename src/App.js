@@ -15,6 +15,7 @@ import Profile from './components/Profile/Profile';
 
 import QuotesContext from './context/QuotesContext';
 import localStorageUtils from './utils/localStorageUtils';
+import indexedDBUtils from './utils/IndexedDBUtils';
 import CustomToast from './Toasts/CustomToast';
 
 const { 
@@ -23,21 +24,29 @@ const {
   storeQuotes, 
   storeIDs, 
   serializeData 
-} = localStorageUtils;
+} = indexedDBUtils;
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [quotes, setQuotes] = useState(null);
-  const [savedQuotes, setSavedQuotes] = useState(fetchStoredQuotes());
-  const [savedIDs, setSavedIDs] = useState(fetchStoredIDs());
+  const [savedQuotes, setSavedQuotes] = useState(null);
+  const [savedIDs, setSavedIDs] = useState(null);
   const [frequency, setFrequency] = useState(2);
   let display = null;
 
   useEffect(() => {
-    const serializedQuotes = serializeData(savedQuotes);
-    const serializedIDs = serializeData(savedIDs);
-    storeQuotes(serializedQuotes);
-    storeIDs(serializedIDs);
+    if (!(savedQuotes && savedIDs)) {
+      fetchStoredQuotes().then((data) => {
+        setSavedQuotes(data);
+      });
+
+      fetchStoredIDs().then((data) => {
+        setSavedIDs(data);
+      });
+    } else {
+      storeQuotes(savedQuotes);
+      storeIDs(savedIDs);
+    }
   }, [savedQuotes, savedIDs]);
 
   useEffect(() => {
