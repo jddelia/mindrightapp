@@ -3,46 +3,34 @@ import localForage from 'localforage';
 
 const utils = {
   fetchStoredQuotes: async () => {
-    const data = await localForage.getItem("savedQuotes");
+    try {
+      const data = await localForage.getItem("savedQuotes");
 
-    if (!data) {
-      const setData = await localForage.setItem("savedQuotes", []);
-      return setData;
-    }
-    return data;
-
-    /*localForage.getItem('savedQuotes').then((data) => {
       if (!data) {
-        localForage.setItem('savedQuotes', []).then((data) => {
-          return data
-        });
-      } else {
-        return data;
+        const setData = await localForage.setItem("savedQuotes", []);
+        return setData;
       }
-    });*/
+      return data;
+    } catch (err) {
+      return err
+    }
   },
 
   fetchStoredIDs: async () => {
-    const data = await localForage.getItem("savedIDs");
+    try {
+      const data = await localForage.getItem("savedIDs");
 
-    if (!data) {
-      const setData = await localForage.setItem("savedIDs", {});
-      return setData;
-    }
-    return data;
-
-    /*localForage.getItem('savedIDs').then((data) => {
       if (!data) {
-        localForage.setItem('savedIDs', {}).then((data) => {
-          return data
-        });
-      } else {
-        return data;
+        const setData = await localForage.setItem("savedIDs", {});
+        return setData;
       }
-    });*/
+      return data;
+    } catch (err) {
+      return err
+    }
   },
 
-  storeQuotes: async (quotes) => {
+  storeQuotes: (quotes) => {
     localForage.setItem('savedQuotes', quotes).then((data) => {
       return data;
     }).catch((err) => {
@@ -58,9 +46,28 @@ const utils = {
     });
   },
 
-  serializeData: (data) => {
-    return JSON.stringify(data);
-  }
+  storeUserToken: async (token) => {
+    try {
+      const data = await localForage.getItem("userToken");
+
+      if (!data) {
+        const setData = await localForage.setItem("userToken", token);
+        return setData;
+      }
+      return;
+    } catch (err) {
+      return err
+    }
+  },
+
+  fetchUserToken: async () => {
+    try {
+      const data = await localForage.getItem("userToken");
+      return data;
+    } catch (err) {
+      return err;
+    }
+  },
 }
 
 export default utils;

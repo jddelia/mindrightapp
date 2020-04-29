@@ -115,6 +115,7 @@ function ExploreCardsContainer() {
     if (quotes && filter) {
       filteredQuotes = quotes.filter((quote) => {
         return (
+          // Basic filter logic
           quote.author.toLowerCase().includes(filter.toLowerCase()) ||
           quote.content.toLowerCase().includes(filter.toLowerCase()) ||
           quote.source.toLowerCase().includes(filter.toLowerCase()) ||

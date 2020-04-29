@@ -14,17 +14,21 @@ import About from './components/About/About';
 import Profile from './components/Profile/Profile';
 
 import QuotesContext from './context/QuotesContext';
-import localStorageUtils from './utils/localStorageUtils';
 import indexedDBUtils from './utils/IndexedDBUtils';
 import CustomToast from './Toasts/CustomToast';
+
+import { messaging } from './firebase/init-fcm';
+import { createNotification, postNotification } from './firebase/postNotification';
 
 const { 
   fetchStoredQuotes, 
   fetchStoredIDs, 
   storeQuotes, 
-  storeIDs, 
-  serializeData 
+  storeIDs,
+  storeUserToken
 } = indexedDBUtils;
+
+let token = null;
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -33,6 +37,35 @@ function App() {
   const [savedIDs, setSavedIDs] = useState(null);
   const [frequency, setFrequency] = useState(2);
   let display = null;
+
+  useEffect(() => {
+    async function setupFirebaseMessaging() {
+      messaging.requestPermission()
+        .then(async function() {
+          token = await messaging.getToken();
+          storeUserToken(token);
+          console.log(token);
+
+          const notificationData = {
+            notificationBody: "This is a cool test!",
+            userToken: token
+          };
+
+          console.log(notificationData)
+
+          const notifiticationOptions = createNotification(notificationData);
+          const notificationTimeout = setTimeout(() => postNotification(notifiticationOptions), 5000);
+          
+          return clearTimeout(notificationTimeout);
+        })
+        .catch(function(err) {
+          console.log("Unable to get permission to notify.", err);
+        });
+      navigator.serviceWorker.addEventListener("message", (message) => console.log(message));
+    }
+
+    setupFirebaseMessaging();
+  }, []);
 
   useEffect(() => {
     if (!(savedQuotes && savedIDs)) {
