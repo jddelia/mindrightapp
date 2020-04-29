@@ -44,19 +44,14 @@ function App() {
         .then(async function() {
           token = await messaging.getToken();
           storeUserToken(token);
-          console.log(token);
 
           const notificationData = {
             notificationBody: "This is a cool test!",
             userToken: token
           };
-
-          console.log(notificationData)
-
+      
           const notifiticationOptions = createNotification(notificationData);
-          const notificationTimeout = setTimeout(() => postNotification(notifiticationOptions), 5000);
-          
-          return clearTimeout(notificationTimeout);
+          postNotification(notifiticationOptions);
         })
         .catch(function(err) {
           console.log("Unable to get permission to notify.", err);
