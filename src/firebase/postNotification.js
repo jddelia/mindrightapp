@@ -13,9 +13,10 @@ function createNotification(
   const notificationInfo = {
     "collapse_key" : "type_a",
     "notification" : {
-      "body" : `${notificationBody}`,
       "title": "MINDRIGHT",
-      "icon": mindRightMainLogo
+      "body" : `${notificationBody}`,
+      "icon": mindRightMainLogo,
+      "badge": mindRightMainLogo
     },
     "to": `${userToken}`
   }
