@@ -34,7 +34,7 @@ function createNotification(
 
 function postNotification(options) {
   axios(options)
-    .then(data => console.log(data))
+    .then(data => console.log("Success"))
     .catch((err) => {
       console.log(err);
     });
