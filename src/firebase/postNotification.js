@@ -14,7 +14,7 @@ function createNotification(
     "notification" : {
       "body" : `${notificationBody}`,
       "title": "MINDRIGHT",
-      "icon": "http://www.liberaldictionary.com/wp-content/uploads/2019/02/icon-0326.jpg"
+      "icon": "https://www.liberaldictionary.com/wp-content/uploads/2019/02/icon-0326.jpg"
     },
     "to": `${userToken}`
   }
