@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const key = "AAAAHBm5F1g:APA91bF7PLVRe-W0xr2Jtc3WLSkdI9IM3_MdNMdPKKurQlMHkHG0HrX6uhbCICFAAPjQ89ccnJFUt9zzWKQ89qEcza7SBFDLFWryQKnhN4D8zbhO__OxFQPb2F7785pEjV5M3bCNhKW8";
-const postURL = "https://fcm.googleapis.com/fcm/send"
+const postURL = "https://fcm.googleapis.com/fcm/send";
+const mindRightMainLogo = require('../assets/mindrightmain.svg');
 
 function createNotification(
   {
@@ -14,7 +15,7 @@ function createNotification(
     "notification" : {
       "body" : `${notificationBody}`,
       "title": "MINDRIGHT",
-      "icon": "https://www.liberaldictionary.com/wp-content/uploads/2019/02/icon-0326.jpg"
+      "icon": mindRightMainLogo
     },
     "to": `${userToken}`
   }
