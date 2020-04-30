@@ -593,7 +593,7 @@ code {
 .footer {
   margin-top: 8%;
   height: 150px;
-  background: #eeeeee;
+  background: #f8f8f8;
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
