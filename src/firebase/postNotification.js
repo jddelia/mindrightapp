@@ -12,15 +12,21 @@ function createNotification(
   }
 ) {
   const notificationInfo = {
-    "collapse_key" : "type_a",
-    "notification" : {
+    "collapse_key": "type_a",
+    "notification": {
       "title": "MINDRIGHT",
       "body": `${notificationBody}`,
       "icon": mindRightMainLogo,
       "badge": notificationBadge,
       "vibrate": [1,2,3]
     },
-    "to": `${userToken}`
+    "to": `${userToken}`,
+    "data": {
+      "title": "MINDRIGHT",
+      "body": `${notificationBody}`,
+      "icon": mindRightMainLogo,
+      "badge": notificationBadge,
+    }
   }
 
   const fetchOptions = {
