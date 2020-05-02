@@ -27,7 +27,11 @@ messaging.setBackgroundMessageHandler(function(payload) {
                }
           })
           .then(() => {
-               return registration.showNotification("my notification title");
+               return registration.showNotification(payload.title, {
+                    body: "this is not the one",
+                    badge: payload.badge,
+                    vibrate: payload.vibrate
+               });
           });
      return promiseChain;
 });

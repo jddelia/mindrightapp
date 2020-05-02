@@ -26,6 +26,7 @@ function createNotification(
       "body": `${notificationBody}`,
       "icon": mindRightMainLogo,
       "badge": notificationBadge,
+      "vibrate": [1,2,1]
     }
   }
 
