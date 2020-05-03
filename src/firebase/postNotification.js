@@ -17,17 +17,9 @@ function createNotification(
       "title": "MINDRIGHT",
       "body": `${notificationBody}`,
       "icon": mindRightMainLogo,
-      "badge": notificationBadge,
-      "vibrate": [1,2,3]
+      "badge": notificationBadge
     },
-    "to": `${userToken}`,
-    "data": {
-      "title": "MINDRIGHT",
-      "body": `${notificationBody}`,
-      "icon": mindRightMainLogo,
-      "badge": notificationBadge,
-      "vibrate": [1,2,1]
-    }
+    "to": `${userToken}`
   }
 
   const fetchOptions = {
