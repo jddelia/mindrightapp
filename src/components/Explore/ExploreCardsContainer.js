@@ -8,6 +8,8 @@ import NoMatches from './NoMatches';
 
 import QuotesContext from '../../context/QuotesContext';
 
+import { clearNotification, scheduleNotification } from '../../utils/notificationScheduler';
+
 const spinner = (
   <div className="lds-ring">
     <div></div><div></div><div></div><div></div>
@@ -20,7 +22,11 @@ let randomSample = [1,5,3,9,2,0,8,20,7];
 let forceRefresh = false;
 
 function ExploreCardsContainer() {
-  const { quotes, setSavedQuotes, savedIDs, setSavedIDs, savedQuotes } = useContext(QuotesContext);
+  const { 
+    quotes, setSavedQuotes, savedIDs, 
+    setSavedIDs, savedQuotes, timers,
+    setTimers
+  } = useContext(QuotesContext);
   const [quotesList, setQuotesList] = useState();
   const [selectAll, setSelectAll] = useState(false);
   const [filter, setFilter] = useState("");
@@ -167,6 +173,19 @@ function ExploreCardsContainer() {
   }, [filter, forceRefresh]);
 
   function handleSavedQuotes(id) {
+    const savedQuote = quotes.filter((quote) => {
+      return quote._id === id;
+    })[0];
+
+    const schedulerDeps = {
+      quoteID: id,
+      savedQuote: savedQuote,
+      savedIDs: savedIDs,
+      timerID: timers[id],
+      timers: timers,
+      setTimers: setTimers
+    };
+    
     // Remove saved quote from localStorage
     if (id in savedIDs) {
       const updatedQuotes = savedQuotes.filter((quote) => {
@@ -177,6 +196,10 @@ function ExploreCardsContainer() {
 
       setSavedQuotes(updatedQuotes);
       setSavedIDs({ ...savedIDs }); // Fix quoteCard isSaved update bug
+
+      if (id in timers) {
+        clearNotification(schedulerDeps);
+      }
 
       // Reset quotes lists
       randomQuotesList = null;
@@ -195,13 +218,9 @@ function ExploreCardsContainer() {
       notificationFrequency: 2
     };
 
-    const savedQuote = quotes.filter((quote) => {
-      return quote._id === id;
-    })[0];
-
     setSavedIDs((prevIDs) => ({ ...prevIDs, ...savedID }));
-    
     setSavedQuotes((prevQuotes) => [...prevQuotes, savedQuote]);
+    scheduleNotification({ ...schedulerDeps, savedIDs: savedID });
     
     // Reset quotes lists
     randomQuotesList = null;

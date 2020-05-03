@@ -3,8 +3,10 @@ import { motion } from 'framer-motion';
 
 import QuotesContext from '../../context/QuotesContext';
 
-function SettingsMenu({ cardID, setMenuDisplay }) {
-  const { savedIDs, setSavedIDs } = useContext(QuotesContext);
+import { resetNotification } from '../../utils/notificationScheduler';
+
+function SettingsMenu({ cardID, cardData, setMenuDisplay }) {
+  const { savedIDs, setSavedIDs, timers, setTimers } = useContext(QuotesContext);
 
   // Temp fix for notificationFrequency bug when card unsaved
   // while settings menu open.
@@ -18,6 +20,7 @@ function SettingsMenu({ cardID, setMenuDisplay }) {
   const [frequency, setFrequency] = useState( notificationFrequency || 2);
   const menuRef = useRef();
   const rangeRef = useRef();
+  const isInitialMount = useRef(true);
 
   useEffect(() => {
     menuRef.current.focus();
@@ -26,6 +29,21 @@ function SettingsMenu({ cardID, setMenuDisplay }) {
   useEffect(() => {
     savedIDs[cardID].notificationFrequency = frequency;
     setSavedIDs((prevIDs) => ({ ...prevIDs }));
+
+    if (!isInitialMount.current) {
+      const schedulerDeps = {
+        quoteID: cardID,
+        savedQuote: cardData,
+        savedIDs: savedIDs,
+        timerID: timers[cardID],
+        timers: timers,
+        setTimers: setTimers
+      };
+  
+      resetNotification(schedulerDeps);
+    }
+
+    isInitialMount.current = false;
   }, [frequency]);
 
   function handleRangeChange() {

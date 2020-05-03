@@ -6,6 +6,8 @@ import QuoteCard from '../QuoteCard/QuoteCard';
 
 import QuotesContext from '../../context/QuotesContext';
 
+import { clearNotification } from '../../utils/notificationScheduler';
+
 let profileQuotesList = null;
 
 const spinner = (
@@ -15,7 +17,7 @@ const spinner = (
 );
 
 function ProfileCardsContainer() {
-  const { savedQuotes, setSavedQuotes, savedIDs, setSavedIDs } = useContext(QuotesContext);
+  const { savedQuotes, setSavedQuotes, savedIDs, setSavedIDs, timers, setTimers } = useContext(QuotesContext);
   const [quotesList, setQuotesList] = useState();
   const { addToast } = useToasts();
 
@@ -52,6 +54,19 @@ function ProfileCardsContainer() {
   }, [savedIDs]);
 
   function handleSavedProfileQuotes(id) {
+    const savedQuote = savedQuotes.filter((quote) => {
+      return quote._id === id;
+    })[0];
+
+    const schedulerDeps = {
+      quoteID: id,
+      savedQuote: savedQuote,
+      savedIDs: savedIDs,
+      timerID: timers[id],
+      timers: timers,
+      setTimers: setTimers
+    };
+
     // Remove saved quote from localStorage
     const updatedQuotes = savedQuotes.filter((quote) => {
       return quote._id !== id;
@@ -62,32 +77,16 @@ function ProfileCardsContainer() {
     setSavedQuotes(updatedQuotes);
     setSavedIDs({ ...savedIDs }); // Fix quoteCard isSaved update bug
 
+    if (id in timers) {
+      clearNotification(schedulerDeps);
+    }
+
     // Reset quotes lists
     profileQuotesList = null;
 
     addToast("Quote removed.", {
       appearance: 'warning'
     });
-
-    /*const savedID = {};
-    savedID[id] = {
-      notificationFrequency: 2
-    };
-
-    const savedQuote = quotes.filter((quote) => {
-      return quote._id === id;
-    })[0];
-
-    setSavedIDs((prevIDs) => ({ ...prevIDs, ...savedID }));
-    
-    setSavedQuotes((prevQuotes) => [...prevQuotes, savedQuote]);
-    
-    // Reset quotes list
-    profileQuotesList = null;
-
-    addToast("Quote saved.", {
-      appearance: 'success'
-    });*/
   }
 
   return (

@@ -9,8 +9,6 @@ import QuotesContext from '../../context/QuotesContext';
 function Profile() {
   const { savedQuotes } = useContext(QuotesContext);
 
-  console.log(!savedQuotes.length)
-
   return (
     <div className="profile">
       <Header />

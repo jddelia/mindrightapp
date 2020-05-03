@@ -67,7 +67,7 @@ const utils = {
     } catch (err) {
       return err;
     }
-  },
+  }
 }
 
 export default utils;

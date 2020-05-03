@@ -18,30 +18,17 @@ import indexedDBUtils from './utils/IndexedDBUtils';
 import CustomToast from './Toasts/CustomToast';
 
 import { messaging } from './firebase/init-fcm';
-import { createNotification, postNotification } from './firebase/postNotification';
+import { initializeScheduler } from './utils/notificationScheduler';
 
 const { 
   fetchStoredQuotes, 
   fetchStoredIDs, 
   storeQuotes, 
   storeIDs,
-  storeUserToken,
-  fetchUserToken
+  storeUserToken
 } = indexedDBUtils;
 
 let token = null;
-
-async function buildNotification(notifData) {
-  const userToken = await fetchUserToken();
-
-  const notificationData = {
-    notificationBody: notifData.body,
-    userToken: userToken
-  };
-
-  const notifiticationOptions = createNotification(notificationData);
-  postNotification(notifiticationOptions);
-}
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -49,6 +36,7 @@ function App() {
   const [savedQuotes, setSavedQuotes] = useState(null);
   const [savedIDs, setSavedIDs] = useState(null);
   const [frequency, setFrequency] = useState(2);
+  const [timers, setTimers] = useState({});
   const isInitialMount = useRef(true);
   let display = null;
 
@@ -87,25 +75,23 @@ function App() {
     } else {
       if (isInitialMount.current) {
         isInitialMount.current = false;
-      } else if (savedQuotes) {
+
+        const schedulerDeps = {
+          savedQuotes: savedQuotes,
+          savedIDs: savedIDs,
+          timers: timers,
+          setTimers: setTimers
+        };
+
+        initializeScheduler(schedulerDeps);
+      } else if (savedQuotes.length) {
         storeQuotes(savedQuotes);
         storeIDs(savedIDs);
 
-        const notifQuote = savedQuotes[savedQuotes.length - 1];
+        //const { notifData, notificationFrequency } = createNotifData(savedQuote, savedIDs);
         
-        if (!notifQuote) {
-          return;
-        }
-
-        let { notificationFrequency } = savedIDs[notifQuote._id];
-        notificationFrequency = parseInt(notificationFrequency + "000");
-
-        const notifData = {
-          body: `${notifQuote.author}: ${notifQuote.content}`
-        };
-        
-        const notifTimeout = setTimeout(() => buildNotification(notifData), notificationFrequency);
-        return () => clearTimeout(notifTimeout);
+        //const notifTimeout = setTimeout(() => buildNotification(notifData), notificationFrequency);
+        //return () => clearTimeout(notifTimeout);
       }
     }
   }, [savedQuotes, savedIDs]);
@@ -139,7 +125,9 @@ function App() {
             savedIDs,
             setSavedIDs,
             frequency,
-            setFrequency
+            setFrequency,
+            timers,
+            setTimers
           }
         }
       >
