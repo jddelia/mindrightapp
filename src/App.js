@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ToastProvider } from 'react-toast-notifications';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -25,10 +25,23 @@ const {
   fetchStoredIDs, 
   storeQuotes, 
   storeIDs,
-  storeUserToken
+  storeUserToken,
+  fetchUserToken
 } = indexedDBUtils;
 
 let token = null;
+
+async function buildNotification(notifData) {
+  const userToken = await fetchUserToken();
+
+  const notificationData = {
+    notificationBody: notifData.body,
+    userToken: userToken
+  };
+
+  const notifiticationOptions = createNotification(notificationData);
+  postNotification(notifiticationOptions);
+}
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,6 +49,7 @@ function App() {
   const [savedQuotes, setSavedQuotes] = useState(null);
   const [savedIDs, setSavedIDs] = useState(null);
   const [frequency, setFrequency] = useState(2);
+  const isInitialMount = useRef(true);
   let display = null;
 
   useEffect(() => {
@@ -50,13 +64,12 @@ function App() {
             userToken: token
           };
       
-          const notifiticationOptions = createNotification(notificationData);
-          postNotification(notifiticationOptions);
+          //const notifiticationOptions = createNotification(notificationData);
+          //postNotification(notifiticationOptions);
         })
         .catch(function(err) {
           console.log("Unable to get permission to notify.", err);
         });
-      navigator.serviceWorker.addEventListener("message", (message) => console.log(message));
     }
 
     setupFirebaseMessaging();
@@ -72,8 +85,23 @@ function App() {
         setSavedIDs(data);
       });
     } else {
-      storeQuotes(savedQuotes);
-      storeIDs(savedIDs);
+      if (isInitialMount.current) {
+        isInitialMount.current = false;
+      } else if (savedQuotes) {
+        storeQuotes(savedQuotes);
+        storeIDs(savedIDs);
+
+        const notifQuote = savedQuotes[savedQuotes.length - 1];
+        let { notificationFrequency } = savedIDs[notifQuote._id];
+        notificationFrequency = parseInt(notificationFrequency + "000");
+
+        const notifData = {
+          body: `${notifQuote.author}: ${notifQuote.content}`
+        };
+        
+        const notifTimeout = setTimeout(() => buildNotification(notifData), notificationFrequency);
+        return () => clearTimeout(notifTimeout);
+      }
     }
   }, [savedQuotes, savedIDs]);
 

@@ -12,7 +12,8 @@ function createNotification(
   }
 ) {
   const notificationInfo = {
-    "collapse_key": "type_a",
+    //"collapse_key": "type_a",
+    "ttl": "10000",
     "notification": {
       "title": "MINDRIGHT",
       "body": `${notificationBody}`,
