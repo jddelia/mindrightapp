@@ -92,6 +92,11 @@ function App() {
         storeIDs(savedIDs);
 
         const notifQuote = savedQuotes[savedQuotes.length - 1];
+        
+        if (!notifQuote) {
+          return;
+        }
+
         let { notificationFrequency } = savedIDs[notifQuote._id];
         notificationFrequency = parseInt(notificationFrequency + "000");
 
