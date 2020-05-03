@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom';
 function CallToAction() {
   return (
     <div className="callToAction">
-      <button className="ctaBtn"><Link to="/explore">Explore</Link></button>
+      <Link to="/explore">
+        <button className="ctaBtn">
+          Explore
+        </button>
+      </Link>
     </div>
   );
 }

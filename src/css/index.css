@@ -297,7 +297,7 @@ code {
   color: #ffffff;
   border: 1px solid #8d88ac;
 }
-.home .callToAction .ctaBtn a {
+.home .callToAction a {
   text-decoration: none;
   color: #eff0fc;
 }
@@ -1029,6 +1029,19 @@ code {
   grid-template-columns: 1fr;
   padding: 2%;
 }
+.about .aboutContent {
+  margin-bottom: -4%;
+  justify-self: center;
+  text-align: center;
+  width: 45%;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.about .aboutContent .aboutText {
+  line-height: 2.5;
+  color: #6B6785;
+  font-size: 20px;
+}
 
 .profile {
   display: grid;
@@ -1339,6 +1352,39 @@ code {
 }
 .profile .profileCardsContainer .cardsContainer .savedCard:hover {
   box-shadow: 6px 8px 20px #c2d3f56c;
+}
+.profile .noSavedQuotes {
+  width: 30%;
+  padding: 2%;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  row-gap: 20px;
+}
+.profile .noSavedQuotes .exploreBtn {
+  height: 40px;
+  width: 100px;
+  border: 1px solid #6B6785;
+  border-radius: 2px;
+  text-decoration: none;
+  background: #746e97;
+  color: #ffffff;
+  font-family: "Roboto" sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+}
+.profile .noSavedQuotes .exploreBtn:hover {
+  cursor: pointer;
+  background: #8d88ac;
+  color: #ffffff;
+  border: 1px solid #8d88ac;
+}
+.profile .noSavedQuotes a {
+  text-decoration: none;
+  color: #eff0fc;
 }
 
 .login {
