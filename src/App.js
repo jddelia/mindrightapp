@@ -46,14 +46,6 @@ function App() {
         .then(async function() {
           token = await messaging.getToken();
           storeUserToken(token);
-
-          const notificationData = {
-            notificationBody: "This is a cool test!",
-            userToken: token
-          };
-      
-          //const notifiticationOptions = createNotification(notificationData);
-          //postNotification(notifiticationOptions);
         })
         .catch(function(err) {
           console.log("Unable to get permission to notify.", err);
@@ -84,14 +76,9 @@ function App() {
         };
 
         initializeScheduler(schedulerDeps);
-      } else if (savedQuotes.length) {
+      } else {
         storeQuotes(savedQuotes);
         storeIDs(savedIDs);
-
-        //const { notifData, notificationFrequency } = createNotifData(savedQuote, savedIDs);
-        
-        //const notifTimeout = setTimeout(() => buildNotification(notifData), notificationFrequency);
-        //return () => clearTimeout(notifTimeout);
       }
     }
   }, [savedQuotes, savedIDs]);
