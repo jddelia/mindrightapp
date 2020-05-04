@@ -1285,7 +1285,6 @@ code {
   justify-self: center;
   position: relative;
   right: 277px;
-  border: 1px solid;
   height: 30px;
   width: 270px;
   border: 2px solid #ff0000;
@@ -1796,14 +1795,14 @@ code {
     padding: 1.5%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 20px;
+    column-gap: 10px;
     align-items: center;
     z-index: 1;
   }
   .explore .exploreCardsContainer #exploreControls .exploreFilter {
     display: grid;
     grid-template-columns: 3fr 1fr;
-    column-gap: 20px;
+    column-gap: 10px;
   }
   .explore .exploreCardsContainer #exploreControls .exploreFilter .filter {
     height: 22px;
@@ -1906,7 +1905,6 @@ code {
   }
   .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .settingsMenuWarning {
     right: 250px;
-    border: 1px solid;
     height: 30px;
     width: 250px;
     padding: 1%;
