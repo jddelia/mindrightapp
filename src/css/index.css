@@ -1765,7 +1765,7 @@ code {
     display: block;
     background: rgba(75, 66, 133, 0.226);
     width: 104%;
-    top: 55px;
+    top: 50px;
     left: -2%;
     color: transparent;
     font-size: 20px;
@@ -1924,6 +1924,26 @@ code {
   .explore .stickyControls {
     position: fixed !important;
     top: 5px !important;
+  }
+
+  .about {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 2%;
+  }
+  .about .aboutContent {
+    margin-top: 4%;
+    margin-bottom: 0%;
+    justify-self: center;
+    text-align: center;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .about .aboutContent .aboutText {
+    line-height: 2;
+    color: #6B6785;
+    font-size: 18px;
   }
 }
 
