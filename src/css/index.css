@@ -1934,16 +1934,156 @@ code {
   .about .aboutContent {
     margin-top: 4%;
     margin-bottom: 0%;
-    justify-self: center;
-    text-align: center;
     width: 80%;
-    display: grid;
-    grid-template-columns: 1fr;
   }
   .about .aboutContent .aboutText {
     line-height: 2;
     color: #6B6785;
     font-size: 18px;
+  }
+
+  .profile {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 2%;
+  }
+  .profile .profileCardsContainer {
+    margin-top: 8%;
+    margin-bottom: 14%;
+    padding: 2%;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .profile .profileCardsContainer .cardsContainer {
+    margin-top: 4%;
+    justify-self: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 20px;
+    row-gap: 40px;
+    justify-items: center;
+  }
+  .profile .profileCardsContainer .cardsContainer .quoteCard {
+    margin-top: 4%;
+    height: fit-content;
+    width: 75%;
+  }
+  .profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    align-items: center;
+  }
+  .profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcThemeText {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-left: 8%;
+  }
+  .profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcThemeText .themeText {
+    font-family: "Hammersmith One", sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+  .profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn {
+    height: 30px;
+    width: 30px;
+  }
+  .profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu {
+    right: 250px;
+    height: 150px;
+    width: 240px;
+  }
+  .profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu:focus {
+    outline: none;
+  }
+  .profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection {
+    padding: 2%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 30% 60%;
+  }
+  .profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .menuTitle {
+    justify-self: center;
+  }
+  .profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .menuTitle .menuTitleText {
+    letter-spacing: 1px;
+  }
+  .profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency {
+    padding: 1%;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm .frequencyLabel {
+    width: 100%;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  .profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm .frequencyLabel .frequencyNumber {
+    padding: 0 5px;
+    background: #6B6785;
+    border-radius: 2px;
+    color: #ffffff;
+  }
+  .profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .settingsMenuWarning {
+    right: 250px;
+    height: 30px;
+    width: 250px;
+    padding: 1%;
+  }
+  .profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .settingsMenuWarning .menuSectionWarning {
+    padding: 2%;
+  }
+  .profile .profileCardsContainer .cardsContainer .quoteCard .quoteCardHeader .settingsMenuWarning .menuSectionWarning .menuWarningTitleText {
+    letter-spacing: 1px;
+    font-size: 11px;
+  }
+  .profile .profileCardsContainer .cardsContainer .savedCard {
+    border: 2px solid #0a1020;
+    box-shadow: 6px 8px 10px #dae3f88c;
+    transition: all 0.2s;
+  }
+  .profile .profileCardsContainer .cardsContainer .savedCard:hover {
+    box-shadow: 6px 8px 20px #c2d3f56c;
+  }
+  .profile .noSavedQuotes {
+    margin-top: 10%;
+    margin-bottom: 68%;
+    width: 50%;
+    padding: 2%;
+    justify-self: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    row-gap: 20px;
+    text-align: center;
+  }
+  .profile .noSavedQuotes .exploreBtn {
+    height: 40px;
+    width: 100px;
+    border: 1px solid #6B6785;
+    border-radius: 2px;
+    text-decoration: none;
+    background: #746e97;
+    color: #ffffff;
+    font-family: "Roboto" sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+  }
+  .profile .noSavedQuotes .exploreBtn:hover {
+    cursor: pointer;
+    background: #8d88ac;
+    color: #ffffff;
+    border: 1px solid #8d88ac;
+  }
+  .profile .noSavedQuotes a {
+    text-decoration: none;
+    color: #eff0fc;
   }
 }
 
