@@ -1525,7 +1525,8 @@ code {
     width: 99vw;
   }
   .home .phrase {
-    padding-top: 4%;
+    margin-top: -4%;
+    padding-top: 0%;
     grid-column: 1;
     grid-row: 1;
     justify-self: center;
