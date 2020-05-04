@@ -1748,6 +1748,185 @@ code {
     padding-left: 4%;
     font-size: 16px;
   }
+
+  .pageTitle {
+    margin: 3% 0;
+    justify-self: center;
+    text-align: center;
+    height: 70px;
+    color: #1a2749;
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 6px;
+    font-family: "Roboto" sans-serif;
+  }
+  .pageTitle::before {
+    content: ".";
+    position: relative;
+    display: block;
+    background: rgba(75, 66, 133, 0.226);
+    width: 104%;
+    top: 55px;
+    left: -2%;
+    color: transparent;
+    font-size: 20px;
+  }
+  .pageTitle .headerText {
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    font-family: "Roboto" sans-serif;
+  }
+
+  .explore {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 2%;
+  }
+  .explore .exploreCardsContainer {
+    margin-top: 30%;
+    padding: 2%;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .explore .exploreCardsContainer #exploreControls {
+    position: absolute;
+    top: 320px;
+    width: 90%;
+    padding: 1.5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    align-items: center;
+    z-index: 1;
+  }
+  .explore .exploreCardsContainer #exploreControls .exploreFilter {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    column-gap: 20px;
+  }
+  .explore .exploreCardsContainer #exploreControls .exploreFilter .filter {
+    height: 22px;
+    padding-left: 2%;
+    font-size: 12px;
+  }
+  .explore .exploreCardsContainer #exploreControls .exploreFilter .filterSubmitBtn {
+    font-size: 12px;
+  }
+  .explore .exploreCardsContainer #exploreControls .selectAll {
+    align-items: center;
+    margin-left: 1%;
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+  }
+  .explore .exploreCardsContainer #exploreControls .selectAll [type=checkbox]:not(:checked),
+.explore .exploreCardsContainer #exploreControls .selectAll [type=checkbox]:checked {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  .explore .exploreCardsContainer #exploreControls .selectAll .selectAllLabel {
+    font-size: 14px;
+    color: #ffffff;
+  }
+  .explore .exploreCardsContainer .cardsContainer {
+    margin-top: 4%;
+    justify-self: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 20px;
+    row-gap: 40px;
+    justify-items: center;
+  }
+  .explore .exploreCardsContainer .cardsContainer .quoteCard {
+    margin-top: 4%;
+    height: fit-content;
+    width: 75%;
+  }
+  .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    align-items: center;
+  }
+  .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcThemeText {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-left: 8%;
+  }
+  .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcThemeText .themeText {
+    font-family: "Hammersmith One", sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+  .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn {
+    height: 30px;
+    width: 30px;
+  }
+  .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu {
+    right: 250px;
+    height: 150px;
+    width: 240px;
+  }
+  .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu:focus {
+    outline: none;
+  }
+  .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection {
+    padding: 2%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 30% 60%;
+  }
+  .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .menuTitle {
+    justify-self: center;
+  }
+  .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .menuTitle .menuTitleText {
+    letter-spacing: 1px;
+  }
+  .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency {
+    padding: 1%;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm .frequencyLabel {
+    width: 100%;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .qcMenuBtn .settingsMenu .menuSection .frequency .frequencyForm .frequencyLabel .frequencyNumber {
+    padding: 0 5px;
+    background: #6B6785;
+    border-radius: 2px;
+    color: #ffffff;
+  }
+  .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .settingsMenuWarning {
+    right: 250px;
+    border: 1px solid;
+    height: 30px;
+    width: 250px;
+    padding: 1%;
+  }
+  .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .settingsMenuWarning .menuSectionWarning {
+    padding: 2%;
+  }
+  .explore .exploreCardsContainer .cardsContainer .quoteCard .quoteCardHeader .settingsMenuWarning .menuSectionWarning .menuWarningTitleText {
+    letter-spacing: 1px;
+    font-size: 11px;
+  }
+  .explore .exploreCardsContainer .noMatches {
+    grid-column: 1;
+    margin-top: 50%;
+    margin-bottom: 100%;
+  }
+  .explore .stickyControls {
+    position: fixed !important;
+    top: 5px !important;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
