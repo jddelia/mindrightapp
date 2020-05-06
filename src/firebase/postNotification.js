@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const key = "AAAAHBm5F1g:APA91bF7PLVRe-W0xr2Jtc3WLSkdI9IM3_MdNMdPKKurQlMHkHG0HrX6uhbCICFAAPjQ89ccnJFUt9zzWKQ89qEcza7SBFDLFWryQKnhN4D8zbhO__OxFQPb2F7785pEjV5M3bCNhKW8";
-const postURL = "https://fcm.googleapis.com/fcm/send";
-const mindRightMainLogo = "https://i.imgur.com/yrDnY9e.png";
-const notificationBadge = "https://i.imgur.com/GY9lfvL.png";
+const key = "";
+const postURL = "";
+const mindRightMainLogo = "";
+const notificationBadge = "";
 
 function createNotification(
   {
@@ -24,10 +24,10 @@ function createNotification(
   }
 
   const fetchOptions = {
-    url: postURL,
+    url: "",
     method: "post",
     headers: {
-      "Authorization": `key=${key}`,
+      "Authorization": `key=${""}`,
       "Content-Type": "application/json"
     },
     data: notificationInfo

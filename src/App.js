@@ -90,7 +90,7 @@ function App() {
     }
 
     async function fetchData() {
-      const response = await axios.get('https://mindright-api.herokuapp.com/quotes/all');
+      const response = await axios.get('');
       setQuotes(response.data);
     }
 
