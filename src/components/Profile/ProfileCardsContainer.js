@@ -67,7 +67,7 @@ function ProfileCardsContainer() {
       setTimers: setTimers
     };
 
-    // Remove saved quote from localStorage
+    // Remove saved quote from storage
     const updatedQuotes = savedQuotes.filter((quote) => {
       return quote._id !== id;
     });

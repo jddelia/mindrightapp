@@ -17,7 +17,7 @@ function SettingsMenu({ cardID, cardData, setMenuDisplay }) {
     console.log("Close settings before unsaving.");
   }
 
-  const [frequency, setFrequency] = useState( notificationFrequency || 2);
+  const [frequency, setFrequency] = useState( notificationFrequency || 1);
   const menuRef = useRef();
   const rangeRef = useRef();
   const isInitialMount = useRef(true);

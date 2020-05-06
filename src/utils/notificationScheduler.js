@@ -26,7 +26,7 @@ const scheduleNotification = ({quoteID, savedQuote, savedIDs, timers, setTimers}
 
   const { notifData, notificationFrequency } = createNotifData(savedQuote, savedIDs);
       
-  const notifTimeout = setInterval(() => buildNotification(notifData), notificationFrequency * 60);
+  const notifTimeout = setInterval(() => buildNotification(notifData), notificationFrequency * 60 * 60);
   const newTimer = {};
   newTimer[quoteID] = notifTimeout;
 
@@ -47,7 +47,7 @@ const resetNotification = ({quoteID, savedQuote, savedIDs, timerID, timers, setT
 
   const { notifData, notificationFrequency } = createNotifData(savedQuote, savedIDs);
       
-  const notifTimeout = setInterval(() => buildNotification(notifData), notificationFrequency * 60);
+  const notifTimeout = setInterval(() => buildNotification(notifData), notificationFrequency * 60 * 60);
   const newTimer = {};
   newTimer[quoteID] = notifTimeout;
 
